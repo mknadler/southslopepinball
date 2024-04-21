@@ -1,0 +1,5 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/keystatic/[...params]/route": "app/api/keystatic/[...params]/route.js",
+  "/keystatic/[[...params]]/page": "app/keystatic/[[...params]]/page.js"
+}
