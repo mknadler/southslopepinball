@@ -2,7 +2,10 @@ import { config, collection, fields } from '@keystatic/core';
 
 export default config({
 	storage: {
-		kind: 'local'
+		kind: 'cloud'
+	},
+	cloud: {
+		project: 'south-slope-pinball/southslopepinball'
 	},
 	collections: {
 		posts: collection({
