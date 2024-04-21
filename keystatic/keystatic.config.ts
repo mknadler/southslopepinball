@@ -7,11 +7,32 @@ export default config({
 	cloud: {
 		project: 'south-slope-pinball/southslopepinball'
 	},
+	ui: {
+		navigation: {
+			'Content': ['others']
+		}
+	},
 	collections: {
 		posts: collection({
 			label: 'Posts',
 			slugField: 'title',
 			path: 'src/content/posts/*',
+			format: { contentField: 'content' },
+			schema: {
+				title: fields.slug({ name: { label: 'Title' } }),
+				content: fields.document({
+					label: 'Content',
+					formatting: true,
+					dividers: true,
+					links: true,
+					images: true
+				})
+			}
+		}),		
+		others: collection({
+			label: 'Posts2',
+			slugField: 'title',
+			path: 'src/content/posts2/*',
 			format: { contentField: 'content' },
 			schema: {
 				title: fields.slug({ name: { label: 'Title' } }),
