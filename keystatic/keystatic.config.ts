@@ -15,9 +15,8 @@ export default config({
 			format: { contentField: 'description' },
 			schema: {
 				eventName: fields.slug({ name: { label: 'Event name' } }),
-				description: fields.text({
-					label: 'Description',
-					multiline: true
+				description: fields.document({
+					label: 'Description'
 				}),
 				starttime: fields.datetime({
 					label: 'Start time'
@@ -44,7 +43,6 @@ export default config({
 			label: 'Locations',
 			slugField: 'locationName',
 			path: 'src/content/venues/*',
-			format: { contentField: 'description' },
 			schema: {
 				locationName: fields.slug({ name: { label: 'Venue name' } }),
 				address: fields.text({
@@ -77,9 +75,8 @@ export default config({
 			format: { contentField: 'description' },
 			schema: {
 				machineName: fields.slug({ name: { label: 'Venue name' } }),
-				description: fields.text({
-					label: 'Description',
-					multiline: true
+				description: fields.document({
+					label: 'Description'
 				}),
 				address: fields.text({
 					label: 'Address'
