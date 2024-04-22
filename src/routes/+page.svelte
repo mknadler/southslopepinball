@@ -7,5 +7,5 @@
 <h2>Keystatic posts</h2>
 
 {#each data.events as event}
-  <h3><a href="/posts/{event.slug}">{event.eventName}</a></h3>
+  <h3><a href="/events/{event.slug}">{event.eventName}</a></h3>
 {/each}
