@@ -65,7 +65,7 @@ export default config({
 					  collection: 'machines'
 					}), {
 					  label: 'Machines',
-					  itemLabel: props => props.value
+					  itemLabel: props => props.value || ''
 					}
 				  )
 			}
