@@ -8,36 +8,90 @@ export default config({
 		project: 'south-slope-pinball/southslopepinball'
 	},
 	collections: {
-		posts: collection({
-			label: 'Posts',
-			slugField: 'title',
-			path: 'src/content/posts/*',
-			format: { contentField: 'content' },
+		events: collection({
+			label: 'Events',
+			slugField: 'eventName',
+			path: 'src/content/events/*',
+			format: { contentField: 'description' },
 			schema: {
-				title: fields.slug({ name: { label: 'Title' } }),
-				content: fields.document({
-					label: 'Content',
-					formatting: true,
-					dividers: true,
-					links: true,
-					images: true
+				eventName: fields.slug({ name: { label: 'Event name' } }),
+				description: fields.text({
+					label: 'Description',
+					multiline: true
+				}),
+				starttime: fields.datetime({
+					label: 'Start time'
+				}),
+				doorstime: fields.datetime({
+					label: 'Doors time'
+				}),
+				matchplayURL: fields.url({
+					label: 'Matchplay',
+					description: 'Matchplay url'
+				}),
+				unlisted: fields.checkbox({
+					label: 'Unlisted',
+					description: "Won't show up on homepage but url still works"
+				}),
+				location: fields.relationship({
+					label: 'Venue',
+					description: 'The venue for the event',
+					collection: 'locations'
 				})
 			}
-		}),		
-		others: collection({
-			label: 'Posts2',
-			slugField: 'title',
-			path: 'src/content/posts2/*',
-			format: { contentField: 'content' },
+		}),
+		locations: collection({
+			label: 'Locations',
+			slugField: 'locationName',
+			path: 'src/content/venues/*',
+			format: { contentField: 'description' },
 			schema: {
-				title: fields.slug({ name: { label: 'Title' } }),
-				content: fields.document({
-					label: 'Content',
-					formatting: true,
-					dividers: true,
-					links: true,
-					images: true
-				})
+				locationName: fields.slug({ name: { label: 'Venue name' } }),
+				address: fields.text({
+					label: 'Address'
+				}),
+				url: fields.url({
+					label: 'Matchplay',
+					description: 'Link to google maps or something'
+				}),
+				private: fields.checkbox({
+					label: 'Private location',
+					description: "Don't show address"
+				}),
+				authors: fields.array(
+					fields.relationship({
+					  label: 'Machines',
+					  description: 'Which machines are at this venue',
+					  collection: 'machines'
+					}), {
+					  label: 'Machines',
+					  itemLabel: props => props.value
+					}
+				  )
+			}
+		}),
+		machines: collection({
+			label: 'Machines',
+			slugField: 'machineName',
+			path: 'src/content/machines/*',
+			format: { contentField: 'description' },
+			schema: {
+				machineName: fields.slug({ name: { label: 'Venue name' } }),
+				description: fields.text({
+					label: 'Description',
+					multiline: true
+				}),
+				address: fields.text({
+					label: 'Address'
+				}),
+				url: fields.url({
+					label: 'Matchplay',
+					description: 'Link to google maps or something'
+				}),
+				private: fields.checkbox({
+					label: 'Private location',
+					description: "Don't show address"
+				}),
 			}
 		})
 	}
