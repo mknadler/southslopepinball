@@ -72,23 +72,8 @@ export default config({
 			label: 'Machines',
 			slugField: 'machineName',
 			path: 'src/content/machines/*',
-			format: { contentField: 'description' },
 			schema: {
-				machineName: fields.slug({ name: { label: 'Venue name' } }),
-				description: fields.document({
-					label: 'Description'
-				}),
-				address: fields.text({
-					label: 'Address'
-				}),
-				url: fields.url({
-					label: 'Matchplay',
-					description: 'Link to google maps or something'
-				}),
-				private: fields.checkbox({
-					label: 'Private location',
-					description: "Don't show address"
-				}),
+				machineName: fields.slug({ name: { label: 'Machine name' } })
 			}
 		})
 	}
