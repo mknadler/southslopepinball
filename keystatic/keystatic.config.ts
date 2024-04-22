@@ -7,11 +7,6 @@ export default config({
 	cloud: {
 		project: 'south-slope-pinball/southslopepinball'
 	},
-	ui: {
-		navigation: {
-			'Content': ['others']
-		}
-	},
 	collections: {
 		posts: collection({
 			label: 'Posts',
