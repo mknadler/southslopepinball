@@ -12,4 +12,4 @@ starts at: {data.starttime}
 doors at: {data.doorstime}
 <br/>
 url: <a href="#">{data.matchplayURL}</a><br/>
-location: <a href="/venues/{data.location}">{data.location}</a>
+location: <a href="/locations/{data.location}">{data.location}</a>
