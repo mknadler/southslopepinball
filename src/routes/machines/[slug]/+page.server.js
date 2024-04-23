@@ -4,10 +4,10 @@ import { reader } from '$lib/reader';
 export const prerender = true;
 
 export async function load({ params }) {
-	const event = await reader.collections.events.read(params.slug, { resolveLinkedFiles: true });
+	const machine = await reader.collections.machines.read(params.slug, { resolveLinkedFiles: true });
 
-	if (event) {
-		return event;
+	if (machine) {
+		return machine;
 	}
 
 	error(404, 'Not found');

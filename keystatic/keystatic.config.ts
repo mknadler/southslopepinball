@@ -46,10 +46,11 @@ export default config({
 		locations: collection({
 			label: 'Locations',
 			slugField: 'locationName',
-			path: 'src/content/venues/*',
+			path: 'src/content/locations/*',
+			format: {contentField: 'address' },
 			schema: {
 				locationName: fields.slug({ name: { label: 'Venue name' } }),
-				address: fields.text({
+				address: fields.document({
 					label: 'Address'
 				}),
 				url: fields.url({
@@ -76,8 +77,10 @@ export default config({
 			label: 'Machines',
 			slugField: 'machineName',
 			path: 'src/content/machines/*',
+			format: {contentField: 'content'},
 			schema: {
-				machineName: fields.slug({ name: { label: 'Machine name' } })
+				machineName: fields.slug({ name: { label: 'Machine name' } }),
+				content: fields.document({ label: 'description'})
 			}
 		})
 	}
