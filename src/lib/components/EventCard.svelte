@@ -5,12 +5,17 @@
     export let startTime: string = '';
     export let doorsTime: string = '';
     export let slug = '';
+    export let imagePath = '';
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
 </script>
 
 <section class="m-eventcard">
+    {#if imagePath}
+        <img src={`/events/${slug}/${imagePath}`}/>
+    {/if}
+
     <span class="date">
         {#if startTimeDate}
             {@const weekday = new Intl.DateTimeFormat('en-US', {

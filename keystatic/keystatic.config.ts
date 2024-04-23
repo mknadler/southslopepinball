@@ -20,6 +20,7 @@ export default config({
 				}),
 				image: fields.image({
 					label: 'Image',
+					directory: '/src/lib/assets'
 				}),
 				starttime: fields.datetime({
 					label: 'Start time'
