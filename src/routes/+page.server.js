@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { reader } from '$lib/reader';
 
-export const prerender = true;
+export const prerender = false;
 
 export async function load() {
 	const events = await reader.collections.events.all({ resolveLinkedFiles: true });

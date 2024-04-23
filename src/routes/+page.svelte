@@ -12,12 +12,15 @@
 
   <h2>Upcoming</h2>
 
+  {JSON.stringify(data.events[0])}
   {#each data.events as event}
+
     <EventCard
       eventName={event.entry.eventName}
       description={event.entry.description || ''}
       startTime={event.entry.starttime}
       doorsTime={event.entry.doorstime}
+      slug={event.slug}
     />
   {/each}
 

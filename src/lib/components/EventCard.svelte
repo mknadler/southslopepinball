@@ -4,6 +4,7 @@
     export let description: string = '';
     export let startTime: string = '';
     export let doorsTime: string = '';
+    export let slug = '';
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
@@ -22,7 +23,7 @@
             {weekday} {monthday}
         {/if}
     </span>
-    <h3>{eventName}</h3>
+    <h3><a href={`/events/${slug}`}>{eventName}</a></h3>
     {#if matchplayUrl && matchplayUrl != '#'}
         <a href={matchplayUrl}>Matchplay</a>
     {/if}

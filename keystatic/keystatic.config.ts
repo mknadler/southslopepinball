@@ -18,6 +18,9 @@ export default config({
 				description: fields.document({
 					label: 'Description'
 				}),
+				image: fields.image({
+					label: 'Image',
+				}),
 				starttime: fields.datetime({
 					label: 'Start time'
 				}),
