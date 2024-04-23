@@ -12,8 +12,6 @@
 
   <h2>Upcoming</h2>
 
-  {JSON.stringify(data)}
-
   {#each data.events as event}
     <EventCard
       eventName={event.entry.eventName}
@@ -22,9 +20,11 @@
       doorsTime={event.entry.doorstime}
       slug={event.slug}
       imagePath={event.entry.image}
+      location={data.locations.find(location => {
+        return location.slug === event.entry.location
+      })}
     />
   {/each}
-
 </section>
 
 <style>

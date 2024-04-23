@@ -6,16 +6,16 @@
     export let doorsTime: string = '';
     export let slug = '';
     export let imagePath = '';
+    export let location;
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
 
     const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
+
 </script>
-
 <section class="m-eventcard">
-    {JSON.stringify(images)}
-
+    <img src={images[`/src/lib/assets/${slug}/${imagePath}`].default}/>
     <span class="date">
         {#if startTimeDate}
             {@const weekday = new Intl.DateTimeFormat('en-US', {
@@ -36,6 +36,9 @@
         <p>
         {description[0].children[0].text}
         </p>
+    {/if}
+    {#if location}
+        {location.entry.locationName}<br/>
     {/if}
     {#if startTime}
         Starts at 
@@ -80,5 +83,9 @@
     }
     h3 {
         display: inline;
+    }
+
+    img {
+        max-width: 100%;
     }
 </style>
