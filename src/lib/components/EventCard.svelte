@@ -9,11 +9,12 @@
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
+
 </script>
 
 <section class="m-eventcard">
     {#if imagePath}
-        <img src={`/events/${slug}/${imagePath}`}/>
+        <img src='src/lib/assets/test-event/image.png'>
     {/if}
 
     <span class="date">
