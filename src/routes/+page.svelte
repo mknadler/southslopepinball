@@ -12,6 +12,8 @@
 
   <h2>Upcoming</h2>
 
+  {JSON.stringify(data)}
+
   {#each data.events as event}
     <EventCard
       eventName={event.entry.eventName}
