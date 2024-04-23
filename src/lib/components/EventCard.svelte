@@ -10,12 +10,11 @@
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
 
+    const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
 </script>
 
 <section class="m-eventcard">
-    {#if imagePath}
-        <img src='src/lib/assets/test-event/image.png'>
-    {/if}
+    {JSON.stringify(images)}
 
     <span class="date">
         {#if startTimeDate}

@@ -20,8 +20,7 @@ export default config({
 				}),
 				image: fields.image({
 					label: 'Image',
-					directory: '/src/lib/assets',
-					publicPath: '/src/lib/assets'
+					directory: '/static/events'
 				}),
 				starttime: fields.datetime({
 					label: 'Start time'
