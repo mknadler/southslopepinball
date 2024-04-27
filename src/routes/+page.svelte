@@ -9,7 +9,9 @@
 <section class="main">
 
   <p class="blurb">Pinball tournaments, leagues, and other events in South Slope, Brooklyn, NY</p>
-
+  <br/>
+  <p>This site is under construction, please come back later :)</p>
+  <!--
   <h2>Upcoming</h2>
 
   {#each data.events as event}
@@ -25,7 +27,9 @@
       })}
     />
   {/each}
+  -->
 </section>
+
 
 <style>
   :global(*) {
