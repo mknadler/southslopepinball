@@ -14,7 +14,7 @@
     const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
 
 </script>
-<section class="m-eventcard">
+<section class="m-eventcard visually-hidden">
     <img src={images[`/src/lib/assets/${slug}/${imagePath}`].default}/>
     <span class="date">
         {#if startTimeDate}
@@ -72,6 +72,15 @@
 </section>
 
 <style>
+    .visually-hidden {
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px; 
+    }
     h3, .date {
         font-size: 21px;
         text-transform: uppercase;
