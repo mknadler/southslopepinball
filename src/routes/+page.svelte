@@ -28,12 +28,20 @@
 </section>
 
 <style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
   :global(body) {
     font-family: "Overpass", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
     background: #f9f9f9;
+  }
+
+  :global(h1, h2, h3, h4, h5) {
+    line-height: 1;
   }
 
   :global(:root) {

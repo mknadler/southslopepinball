@@ -1,6 +1,7 @@
 <script>
   import Icon from '$lib/assets/Icon.svelte';
-  import Menu from '$lib/assets/Menu.svelte';
+  import MenuText from '$lib/assets/MenuText.svelte';
+  import Menu from '$lib/components/Menu.svelte';
 </script>
 
 <header>
@@ -8,7 +9,7 @@
         <h1 class="visually-hidden">South Slope Pinball</h1>
         <Icon/>
     </div>
-
+    <Menu/>
 </header>
 
 <style>
@@ -26,5 +27,8 @@
         padding-right: 2rem;
         padding-top: 1rem;
         margin-bottom: 4rem;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
     }
 </style>

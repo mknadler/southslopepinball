@@ -88,4 +88,27 @@
     img {
         max-width: 100%;
     }
+    a {
+        color: #111111;
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+    }
+    a:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        background: var(--color-blue);
+        transform: translateY(0px);
+        transition: transform 100ms ease-in-out, background 100ms ease-in;
+    }
+    a:hover:after {
+        transform: translateY(-4px);
+        background: #c468ff;
+    }
+
 </style>
