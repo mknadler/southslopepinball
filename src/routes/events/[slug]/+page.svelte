@@ -3,12 +3,14 @@
 </script>
 
 <a href="/">&larr; Back home</a>
-<h1>{data.event.eventName}</h1>
-{data.event.description[0].children[0].text}
+<h1>{data.event?.eventName}</h1>
+{data.event?.description[0]?.children[0]?.text}
 <br/>
-starts at: {data.event.starttime}
+starts at: {data.event?.starttime}
 <br/>
-doors at: {data.event.doorstime}
+doors at: {data.event?.doorstime}
 <br/>
+{#if data?.event?.matchplayURL}
 url: <a href="#">{data.event.matchplayURL}</a><br/>
+{/if}
 location: <a href="/locations/{data.event.location}">{data?.location?.locationName}</a>
