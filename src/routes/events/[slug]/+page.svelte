@@ -11,4 +11,4 @@ starts at: {data.event.starttime}
 doors at: {data.event.doorstime}
 <br/>
 url: <a href="#">{data.event.matchplayURL}</a><br/>
-location: <a href="/locations/{data.event.location}">{data.location.locationName}</a>
+location: <a href="/locations/{data.event.location}">{data?.location?.locationName}</a>
