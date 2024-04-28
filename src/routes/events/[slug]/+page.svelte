@@ -10,7 +10,7 @@ starts at: {data.event?.starttime}
 <br/>
 doors at: {data.event?.doorstime}
 <br/>
-{#if data?.event?.matchplayURL}
+{#if data?.event?.matchplayURL && data?.event?.matchplayURL != null}
 url: <a href="#">{data.event.matchplayURL}</a><br/>
 {/if}
 location: <a href="/locations/{data.event.location}">{data?.location?.locationName}</a>
