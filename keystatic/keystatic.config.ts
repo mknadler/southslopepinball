@@ -52,10 +52,10 @@ export default config({
 			label: 'Series/League',
 			slugField: 'seriesSlug',
 			path: 'src/content/series/*',
-			format: {contentField: 'seriesName' },
+			format: {contentField: 'seriesContent' },
 			schema: {
-				seriesName: fields.document({label: 'Series/league name'}),
-				seriesSlug: fields.slug({ name: { label: 'Series/league slug' } }),
+				seriesSlug: fields.slug({ name: { label: 'Series/league name' } }),
+				seriesContent: fields.document({ label: 'description'})
 			}
 		}),
 		locations: collection({
