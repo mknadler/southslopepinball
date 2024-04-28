@@ -7,6 +7,9 @@ export default config({
 	cloud: {
 		project: 'south-slope-pinball/southslopepinball'
 	},
+	ui: {
+		brand: { name: 'South Slope Pinball'}
+	},
 	collections: {
 		events: collection({
 			label: 'Events',
@@ -54,8 +57,12 @@ export default config({
 			path: 'src/content/series/*',
 			format: {contentField: 'seriesContent' },
 			schema: {
-				seriesSlug: fields.slug({ name: { label: 'Series/league name' } }),
-				seriesContent: fields.document({ label: 'description'})
+				seriesSlug: fields.slug({ name: { label: 'Series/league name (required)' } }),
+				seriesContent: fields.document({ label: 'Description (optional)'}),
+				url: fields.url({
+					label: 'Matchplay series URL (optional)',
+					description: 'Link to Matchplay series'
+				}),
 			}
 		}),
 		locations: collection({
@@ -69,7 +76,7 @@ export default config({
 					label: 'Address'
 				}),
 				url: fields.url({
-					label: 'Matchplay',
+					label: 'URL',
 					description: 'Link to google maps or something'
 				}),
 				private: fields.checkbox({
