@@ -11,18 +11,9 @@ dependencies:
   '@keystatic/next':
     specifier: ^5.0.0
     version: 5.0.0(@keystatic/core@0.5.13)(next@14.2.3)(react-dom@18.2.0)(react@18.2.0)
-  '@markdoc/markdoc':
-    specifier: ^0.4.0
-    version: 0.4.0(@types/react@18.2.79)(react@18.2.0)
   mdsvex:
     specifier: ^0.11.0
     version: 0.11.0(svelte@4.2.15)
-  svelte-markdoc-preprocess:
-    specifier: ^1.2.1
-    version: 1.2.1(react@18.2.0)
-  sveltejs-markdoc:
-    specifier: ^0.2.0
-    version: 0.2.0
 
 devDependencies:
   '@sveltejs/adapter-auto':
@@ -3538,10 +3529,6 @@ packages:
       function-bind: 1.1.2
     dev: false
 
-  /html-escaper@3.0.3:
-    resolution: {integrity: sha512-RuMffC89BOWQoY0WKGpIhn5gX3iI54O6nRA0yC124NYVtzjmFWBIiFd8M0x+ZdX0P9R4lADg1mgP8C7PxGOWuQ==}
-    dev: false
-
   /idb-keyval@6.2.1:
     resolution: {integrity: sha512-8Sb3veuYCyrZL+VBt9LJfZjLUPWVvqn8tG28VqYNFCo43KHcKuq+b4EiXGeuaLAQWL2YmyDgMp2aSpH9JHsEQg==}
     dev: false
@@ -3779,10 +3766,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: false
-
-  /lovely-logs@1.2.2:
-    resolution: {integrity: sha512-dPvYcBok38QvXC+X8/v2BZJDA/iZfCfkRXAwp+s9rvBxY+ZWkMuhNNxukQVIUVMNutIonKpN140Vfv6LCli/wQ==}
     dev: false
 
   /lru-cache@10.2.1:
@@ -5084,20 +5067,6 @@ packages:
       svelte: 4.2.15
     dev: true
 
-  /svelte-markdoc-preprocess@1.2.1(react@18.2.0):
-    resolution: {integrity: sha512-xeD8q84kICWJ4sZeZIeMCeSH4paqpIS1w7BlfJ5n3f9frLtfrLQrOxHnTA3oDrac/tEbH+plLWiS3ZUXwqanXw==}
-    dependencies:
-      '@markdoc/markdoc': 0.4.0(@types/react@18.2.79)(react@18.2.0)
-      html-escaper: 3.0.3
-      js-yaml: 4.1.0
-      lovely-logs: 1.2.2
-      svelte: 4.2.15
-      typescript: 5.4.5
-    transitivePeerDependencies:
-      - '@types/react'
-      - react
-    dev: false
-
   /svelte-preprocess@5.1.4(postcss@8.4.38)(svelte@4.2.15)(typescript@5.4.5):
     resolution: {integrity: sha512-IvnbQ6D6Ao3Gg6ftiM5tdbR6aAETwjhHV+UKGf5bHGYR69RQvF1ho0JKPcbUON4vy4R7zom13jPjgdOWCQ5hDA==}
     engines: {node: '>= 16.0.0'}
@@ -5164,10 +5133,6 @@ packages:
       locate-character: 3.0.0
       magic-string: 0.30.10
       periscopic: 3.1.0
-
-  /sveltejs-markdoc@0.2.0:
-    resolution: {integrity: sha512-JukT9uoIPaua1QGJDlLbZIPYvcLnf820GhB4zIe1yhldjxfkv5dINpXHKbHoQMXoYE67vlm+gcBTArMsMHBF6g==}
-    dev: false
 
   /tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
@@ -5236,6 +5201,7 @@ packages:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
     engines: {node: '>=14.17'}
     hasBin: true
+    dev: true
 
   /unist-util-is@6.0.0:
     resolution: {integrity: sha512-2qCTHimwdxLfz+YzdGfkqNlH0tLi9xjTnHddPmJwtIG9MGsdbutfTc4P+haPD7l7Cjxf/WZj+we5qfVPvvxfYw==}
