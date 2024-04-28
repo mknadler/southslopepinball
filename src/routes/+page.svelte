@@ -12,15 +12,15 @@
   <br/>
   <p>This site is under construction, please come back later :)</p>
 
-  {#each data.events as event}
+  {#each data.readz as event}
     <EventCard
       eventName={event.entry.eventName}
-      description={''}
+      description={event.entry.description}
       startTime={event.entry.starttime}
       doorsTime={event.entry.doorstime}
       slug={event.slug}
       imagePath={event.entry.image}
-      location={data.locations.find(location => {
+      location={data.locations?.find(location => {
         return location.slug === event.entry.location
       })}
     />
