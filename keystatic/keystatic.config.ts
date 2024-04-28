@@ -50,11 +50,12 @@ export default config({
 		}),
 		series: collection({
 			label: 'Series/League',
-			slugField: 'seriesName',
+			slugField: 'seriesSlug',
 			path: 'src/content/series/*',
-			format: {contentField: 'address' },
+			format: {contentField: 'seriesName' },
 			schema: {
-				seriesName: fields.slug({ name: { label: 'Series/league name' } }),
+				seriesName: fields.document({label: 'Series/league name'}),
+				seriesSlug: fields.slug({ name: { label: 'Series/league slug' } }),
 			}
 		}),
 		locations: collection({
