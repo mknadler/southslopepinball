@@ -14,7 +14,7 @@
     const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
 
 </script>
-<section class="m-eventcard visually-hidden">
+<section class="m-eventcard">
     <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
     <span class="date">
         {#if startTimeDate}
@@ -37,7 +37,7 @@
         {description[0].children[0].text}
         </p>
     {/if}
-    {#if location}
+    {#if location?.entry?.locationName}
         {location.entry.locationName}<br/>
     {/if}
     {#if startTime}
