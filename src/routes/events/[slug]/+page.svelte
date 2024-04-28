@@ -4,7 +4,7 @@
 
 <a href="/">&larr; Back home</a>
 <h1>{data.event?.eventName}</h1>
-{data.event?.description[0]?.children[0]?.text}
+(description)
 <br/>
 starts at: {data.event?.starttime}
 <br/>

@@ -15,7 +15,7 @@
   {#each data.events as event}
     <EventCard
       eventName={event.entry.eventName}
-      description={event.entry.description || ''}
+      description={''}
       startTime={event.entry.starttime}
       doorsTime={event.entry.doorstime}
       slug={event.slug}

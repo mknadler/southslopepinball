@@ -33,9 +33,7 @@
         <a href={matchplayUrl}>Matchplay</a>
     {/if}
     {#if description}
-        <p>
-        {description[0].children[0].text}
-        </p>
+        <p>(desc goes here)</p>
     {/if}
     {#if location?.entry?.locationName}
         {location.entry.locationName}<br/>
