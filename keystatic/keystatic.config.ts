@@ -40,7 +40,21 @@ export default config({
 					label: 'Venue',
 					description: 'The venue for the event',
 					collection: 'locations'
+				}),
+				series: fields.relationship({
+					label: 'Series/League',
+					description: 'The series or league this belongs to',
+					collection: 'series'
 				})
+			}
+		}),
+		series: collection({
+			label: 'Series/League',
+			slugField: 'seriesName',
+			path: 'src/content/series/*',
+			format: {contentField: 'address' },
+			schema: {
+				seriesName: fields.slug({ name: { label: 'Series/league name' } }),
 			}
 		}),
 		locations: collection({
