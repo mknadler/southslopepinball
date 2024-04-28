@@ -18,7 +18,7 @@ export default config({
 			format: { contentField: 'description' },
 			schema: {
 				eventName: fields.slug({ name: { label: 'Event name' } }),
-				description: fields.markdoc({
+				description: fields.mdx({
 					label: 'Description'
 				}),
 				image: fields.image({
