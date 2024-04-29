@@ -30,6 +30,7 @@ export default config({
 							ordered: true
 						},
 					},
+					links: true
 				}),
 				image: fields.image({
 					label: 'Image',
