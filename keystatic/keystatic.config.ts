@@ -19,7 +19,25 @@ export default config({
 			schema: {
 				eventName: fields.slug({ name: { label: 'Event name' } }),
 				description: fields.document({
-					label: 'Description'
+					label: 'Description',
+					formatting: {
+						inlineMarks: {
+							bold: true,
+							italic: true,
+							strikethrough: true,
+							code: false,
+						},
+						listTypes: {
+							ordered: false,
+							unordered: true,
+						},
+							headingLevels: [],
+							blockTypes: {
+							blockquote: false,
+							code: false,
+						},
+						softBreaks: false
+					},
 				}),
 				image: fields.image({
 					label: 'Image',

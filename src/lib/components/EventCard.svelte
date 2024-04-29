@@ -15,7 +15,9 @@
 
 </script>
 <section class="m-eventcard">
-    <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
+    {#if imagePath && imagePath !== ''}
+        <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
+    {/if}
     <span class="date">
         {#if startTimeDate}
             {@const weekday = new Intl.DateTimeFormat('en-US', {
