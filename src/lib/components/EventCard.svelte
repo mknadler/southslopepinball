@@ -1,7 +1,6 @@
 <script lang="ts">
     export let eventName: string = '';
     export let matchplayUrl: string = '#';
-    export let description: string = '';
     export let startTime: string = '';
     export let doorsTime: string = '';
     export let slug = '';
@@ -34,13 +33,11 @@
     {#if matchplayUrl && matchplayUrl != '#'}
         <a href={matchplayUrl}>Matchplay</a>
     {/if}
-    {#if description}
-        <p>
-        {description[0].children[0].text}
-        </p>
-    {/if}
+    <br/><br/>
     {#if location?.entry?.locationName}
-        {location.entry.locationName}<br/>
+        <span class="m-eventcard__location">
+            {location.entry.locationName}
+        </span>
     {/if}
     {#if startTime}
         Starts at 
@@ -84,9 +81,10 @@
         width: 1px; 
     }
     h3, .date {
-        font-size: 21px;
+        font-size: 32px;
         text-transform: uppercase;
         font-weight: 500;
+        line-height: 1;
     }
     .date {
         color: var(--color-blue);
