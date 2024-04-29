@@ -13,17 +13,19 @@
   <p>This site is under construction, please come back later :)</p>
 
   {#each data.events as event}
-    <EventCard
-      eventName={event.entry.eventName}
-      description={event.entry.description || ''}
-      startTime={event.entry.starttime}
-      doorsTime={event.entry.doorstime}
-      slug={event.slug}
-      imagePath={event.entry.image}
-      location={data.locations.find(location => {
-        return location.slug === event.entry.location
-      })}
-    />
+    {#if !event.entry.unlisted}
+      <EventCard
+        eventName={event.entry.eventName}
+        description={event.entry.description || ''}
+        startTime={event.entry.starttime}
+        doorsTime={event.entry.doorstime}
+        slug={event.slug}
+        imagePath={event.entry.image}
+        location={data.locations.find(location => {
+          return location.slug === event.entry.location
+        })}
+      />
+    {/if}
   {/each}
 
 </section>
