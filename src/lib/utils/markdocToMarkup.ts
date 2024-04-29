@@ -5,17 +5,26 @@ export const markdocToMarkup = (contents) => {
         if (contentObject.type === 'paragraph') {
             let innerContent = '';
             contentObject.children.forEach(childContent => {
-                if (childContent.text && childContent.bold && childContent.italic) {
-                    innerContent += `<span class="bold italic">${childContent.text}</span>`
+                let classList = [];
+                if (childContent.text && childContent.bold) {
+                    classList.push('bold');
                 }
-                else if (childContent.text && childContent.bold) {
-                    innerContent += `<span class="bold">${childContent.text}</span>`
+                if (childContent.text && childContent.italic) {
+                    classList.push('italic')
                 }
-                else if (childContent.text && childContent.italic) {
-                    innerContent += `<span class="italic">${childContent.text}</span>`
+                if (childContent.text) {
+                    innerContent += `<span class="${classList.join(' ')}">${childContent.text}</span>`
                 }
-                else if (childContent.text) {
-                    innerContent += childContent.text
+                if (childContent.type && childContent.type === 'link') {
+                    let linkMarkup = `<a href="${childContent.href}">${childContent.children[0].text}</a>`
+                    let linkClasses = [];
+                    if (childContent.children[0].bold) { linkClasses.push('bold') }
+                    if (childContent.children[0].italic) { linkClasses.push('italic') }
+                    if (linkClasses.length >= 1) { 
+                        innerContent += `<span class="${linkClasses.join(' ')}">${linkMarkup}</span>`
+                    } else {
+                        innerContent += linkMarkup;
+                    }
                 }
             });
             return `<p>${innerContent}</p>`
