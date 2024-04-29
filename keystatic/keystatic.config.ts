@@ -123,14 +123,24 @@ export default config({
 				}),
 				machines: fields.array(
 					fields.relationship({
-					  label: 'Machines',
-					  description: 'Which machines are at this venue (optional)',
-					  collection: 'machines'
+						label: 'Machines',
+						description: 'Which machines are at this venue (optional)',
+						collection: 'machines'
 					}), {
-					  label: 'Machines',
-					  itemLabel: props => props.value || ''
+						label: 'Machines',
+						itemLabel: props => props.value || ''
 					}
-				  )
+				),
+				authors: fields.array(
+					fields.relationship({
+						label: 'Machines',
+						description: 'Which machines are at this venue (optional)',
+						collection: 'machines'
+					}), {
+						label: 'Machines',
+						itemLabel: props => props.value || ''
+					}
+				),
 			}
 		}),
 		machines: collection({
