@@ -14,7 +14,7 @@ doors at: {data.event?.doorstime}
   url: <a href="#">{data.event.matchplayURL}</a><br/>
 {/if}
 {#if data?.event?.location}
-  Location: <a href="/locations/{data.event.location}">{data?.location?.locationName}</a>
+  Location: {data?.location?.locationName}
 {:else}
   Location: (Not set yet)
 {/if}
