@@ -16,9 +16,10 @@
 
 </script>
 <section class="m-eventcard">
-    {#if imagePath && imagePath !== ''}
+    {#if false && imagePath && imagePath !== ''}
         <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
     {/if}
+    <h3><a href={`/events/${slug}`}>{eventName}</a></h3>
     <span class="date">
         {#if startTimeDate}
             {@const weekday = new Intl.DateTimeFormat('en-US', {
@@ -31,7 +32,7 @@
             {weekday} {monthday}
         {/if}
     </span>
-    <h3><a href={`/events/${slug}`}>{eventName}</a></h3>
+
     {#if matchplayUrl && matchplayUrl != '#'}
         <a href={matchplayUrl}>Matchplay</a>
     {/if}
