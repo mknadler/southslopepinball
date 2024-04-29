@@ -8,7 +8,7 @@
     onMount(() => {
         formatted = new Intl.DateTimeFormat('en-US', {
             hour: 'numeric',
-            minute: 'numeric'
+            minute: 'numeric',
         }).format(datetime);
     })
 </script>

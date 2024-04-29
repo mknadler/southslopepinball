@@ -1,13 +1,22 @@
-<script>
+<script lang="ts">
   import Icon from '$lib/assets/Icon.svelte';
   import MenuText from '$lib/assets/MenuText.svelte';
   import Menu from '$lib/components/Menu.svelte';
+
+  export let link: Boolean = false;
 </script>
 
 <header>
     <div class="logo">
-        <h1 class="visually-hidden">South Slope Pinball</h1>
-        <Icon/>
+        {#if link}
+            <a href="/">
+                <h1 class="visually-hidden">South Slope Pinball</h1>
+                <Icon/>
+            </a>
+        {:else}
+            <h1 class="visually-hidden">South Slope Pinball</h1>
+            <Icon/>
+        {/if}
     </div>
     <Menu/>
 </header>

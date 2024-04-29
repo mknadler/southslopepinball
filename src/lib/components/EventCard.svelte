@@ -1,5 +1,6 @@
 <script lang="ts">
     import Datetime from './Datetime.svelte'
+    import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
 
     export let eventName: string = '';
     export let matchplayUrl: string = '#';
@@ -8,6 +9,7 @@
     export let slug = '';
     export let imagePath = '';
     export let location;
+    export let dek;
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
@@ -16,6 +18,8 @@
 
 </script>
 <section class="m-eventcard">
+
+
     {#if false && imagePath && imagePath !== ''}
         <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
     {/if}
@@ -23,15 +27,21 @@
     <span class="date">
         {#if startTimeDate}
             {@const weekday = new Intl.DateTimeFormat('en-US', {
-                weekday: 'short'
+                weekday: 'long'
             }).format(startTimeDate)}
             {@const monthday = new Intl.DateTimeFormat('en-US', {
-                month: 'numeric',
+                month: 'short',
                 day: 'numeric'
             }).format(startTimeDate)}
             {weekday} {monthday}
         {/if}
     </span>
+
+    {#if dek}
+        <div class="dek">
+            {@html markdocToMarkup(dek)}
+        </div>
+    {/if}
 
     {#if matchplayUrl && matchplayUrl != '#'}
         <a href={matchplayUrl}>Matchplay</a>
@@ -39,7 +49,7 @@
 
     {#if location?.entry?.locationName}
         <div class="location">
-            <span class="field-label">VENUE</span>
+            <span class="field-label">Venue</span>
             <span class="m-eventcard__location">
                 {location.entry.locationName}
             </span>
@@ -47,17 +57,22 @@
     {/if}
     {#if startTime}
         <div class="start-time">
-            Starts at <Datetime datetime={startTimeDate}/>
+            <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
         </div>
     {/if}
     {#if doorsTime}
         <div class="doors-time">
-            Doors at <Datetime datetime={doorsTimeDate}/>
+            <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
         </div>
     {/if}
 </section>
 
 <style>
+    .m-eventcard {
+        background: rgba(102, 102, 255, 0.1);
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
     .visually-hidden {
         clip: rect(0 0 0 0);
         clip-path: inset(50%);
@@ -74,20 +89,28 @@
         line-height: 1;
     }
     .date {
-        color: var(--color-blue);
         display: block;
+        font-weight: 600;
+        font-size: 20px;
     }
     .starttime, .doorstime {
         display: block;
         margin: 0;
     }
     h3 {
+        font-weight: 700;
         display: block;
         margin: 0;
         margin-bottom: 1rem;
+        text-shadow: 0px 1px 0 #111;
+        transition: text-shadow 200ms ease-in-out;
+    }
+    h3:hover {
+        text-shadow: 2px -1px 0 var(--color-blue);
     }
     .field-label {
         font-weight: 600;
+        text-transform: uppercase;
     }
     img {
         max-width: 100%;
@@ -100,7 +123,7 @@
     }
     a:after {
         content: '';
-        display: block;
+        display: none;
         width: 100%;
         height: 2px;
         position: absolute;

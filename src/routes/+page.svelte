@@ -5,18 +5,14 @@
 </script>
 
 <Header/>
-
 <section class="main">
-
   <p class="blurb">Pinball tournaments, leagues, and other events in South Slope, Brooklyn, NY</p>
-  <br/>
-  <p>This site is under construction, please come back later :)</p>
-
   {#each data.events as event}
     {#if !event.entry.unlisted}
       <EventCard
         eventName={event.entry.eventName}
         description={event.entry.description || ''}
+        dek={event.entry.dek}
         startTime={event.entry.starttime}
         doorsTime={event.entry.doorstime}
         slug={event.slug}
@@ -27,7 +23,6 @@
       />
     {/if}
   {/each}
-
 </section>
 
 
