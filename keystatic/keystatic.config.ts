@@ -24,8 +24,7 @@ export default config({
 						inlineMarks: {
 							bold: true,
 							italic: true,
-							strikethrough: true,
-							code: false,
+							strikethrough: true
 						},
 						listTypes: {
 							ordered: false,
@@ -33,7 +32,8 @@ export default config({
 						},
 							headingLevels: [],
 							blockTypes: {
-							blockquote: false
+							blockquote: false,
+							code: false,
 						},
 						softBreaks: false
 					},
