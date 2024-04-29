@@ -133,7 +133,7 @@ export default config({
 				),
 				authors: fields.array(
 					fields.relationship({
-						label: 'Machines',
+						label: 'Machines(old)',
 						description: 'Which machines are at this venue (optional)',
 						collection: 'machines'
 					}), {
