@@ -19,7 +19,7 @@ export default config({
 			schema: {
 				eventName: fields.slug({ name: { label: 'Event name' } }),
 				description: fields.document({
-					label: 'Main entry description (long, for event page)',
+					label: 'Long event description (for event page) (optional)',
 					formatting: {
 						inlineMarks: {
 							bold: true,
@@ -33,7 +33,7 @@ export default config({
 					links: true
 				}),
 				dek: fields.document({
-					label: 'Dek / short description for homepage',
+					label: 'Dek / short description (for homepage feed) (optional)',
 					formatting: {
 						inlineMarks: {
 							bold: true,
@@ -80,13 +80,26 @@ export default config({
 			label: 'Series/League',
 			slugField: 'seriesSlug',
 			path: 'src/content/series/*',
-			format: {contentField: 'seriesContent' },
+			format: {contentField: 'description' },
 			schema: {
 				seriesSlug: fields.slug({ name: { label: 'Series/league name (required)' } }),
-				seriesContent: fields.document({ label: 'Description (optional)'}),
 				url: fields.url({
 					label: 'Matchplay series URL (optional)',
-					description: 'Link to Matchplay series'
+					description: 'Link to Matchplay series (optional)'
+				}),
+				description: fields.document({
+					label: 'Main series description',
+					formatting: {
+						inlineMarks: {
+							bold: true,
+							italic: true
+						},
+						listTypes: {
+							unordered: true,
+							ordered: true
+						},
+					},
+					links: true
 				}),
 			}
 		}),
