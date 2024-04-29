@@ -27,15 +27,9 @@ export default config({
 							strikethrough: true
 						},
 						listTypes: {
-							ordered: false,
 							unordered: true,
+							ordered: true
 						},
-							headingLevels: [],
-							blockTypes: {
-							blockquote: false,
-							code: false,
-						},
-						softBreaks: false
 					},
 				}),
 				image: fields.image({
