@@ -33,8 +33,7 @@ export default config({
 						},
 							headingLevels: [],
 							blockTypes: {
-							blockquote: false,
-							code: false,
+							blockquote: false
 						},
 						softBreaks: false
 					},
