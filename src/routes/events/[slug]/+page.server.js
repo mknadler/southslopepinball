@@ -5,8 +5,10 @@ export const prerender = true;
 
 export async function load({ params }) {
 	const event = await reader.collections.events.read(params.slug, { resolveLinkedFiles: true });
+	console.log('load', event);
 	const location = await reader.collections.locations.read(event.location, { resolveLinkedFiles: true});
-	if (event) {
+	console.log('location', location)
+	if (event && location) {
 		return {event, location};
 	}
 

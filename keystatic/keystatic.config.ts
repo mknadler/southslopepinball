@@ -107,6 +107,7 @@ export default config({
 			label: 'Locations',
 			slugField: 'locationName',
 			path: 'src/content/locations/*',
+			format: {contentField: 'address' },
 			schema: {
 				locationName: fields.slug({ name: { label: 'Venue name' } }),
 				url: fields.url({
