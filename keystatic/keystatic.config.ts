@@ -113,14 +113,18 @@ export default config({
 					label: 'URL',
 					description: 'Link to google maps or something'
 				}),
+				address: fields.document({
+					label: 'Address',
+					formatting: {},
+				}),
 				private: fields.checkbox({
 					label: 'Private location',
-					description: "Don't show address"
+					description: "Don't show address (optional)"
 				}),
-				authors: fields.array(
+				machines: fields.array(
 					fields.relationship({
 					  label: 'Machines',
-					  description: 'Which machines are at this venue',
+					  description: 'Which machines are at this venue (optional)',
 					  collection: 'machines'
 					}), {
 					  label: 'Machines',
