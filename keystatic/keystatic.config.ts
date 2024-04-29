@@ -19,7 +19,21 @@ export default config({
 			schema: {
 				eventName: fields.slug({ name: { label: 'Event name' } }),
 				description: fields.document({
-					label: 'Description',
+					label: 'Main entry description (long, for event page)',
+					formatting: {
+						inlineMarks: {
+							bold: true,
+							italic: true
+						},
+						listTypes: {
+							unordered: true,
+							ordered: true
+						},
+					},
+					links: true
+				}),
+				dek: fields.document({
+					label: 'Dek / short description for homepage',
 					formatting: {
 						inlineMarks: {
 							bold: true,

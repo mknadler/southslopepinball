@@ -1,4 +1,6 @@
 <script lang="ts">
+    import Datetime from './Datetime.svelte'
+
     export let eventName: string = '';
     export let matchplayUrl: string = '#';
     export let startTime: string = '';
@@ -33,40 +35,24 @@
     {#if matchplayUrl && matchplayUrl != '#'}
         <a href={matchplayUrl}>Matchplay</a>
     {/if}
-    <br/><br/>
+
     {#if location?.entry?.locationName}
-        <span class="m-eventcard__location">
-            {location.entry.locationName}
-        </span>
+        <div class="location">
+            <span class="field-label">VENUE</span>
+            <span class="m-eventcard__location">
+                {location.entry.locationName}
+            </span>
+        </div>
     {/if}
     {#if startTime}
-        Starts at 
-        {@const datetime = new Intl.DateTimeFormat('en-US', {
-            hour: 'numeric',
-            minute: 'numeric'
-        }).format(startTimeDate)}
-        {#if datetime == '12:00 AM'}
-            Noon
-        {:else if datetime == '12:00 PM'}
-            Midnight
-        {:else}
-            {datetime}
-        {/if}
+        <div class="start-time">
+            Starts at <Datetime datetime={startTimeDate}/>
+        </div>
     {/if}
-    <br/>
     {#if doorsTime}
-        Doors at 
-        {@const datetime = new Intl.DateTimeFormat('en-US', {
-            hour: 'numeric',
-            minute: 'numeric'
-        }).format(doorsTimeDate)}
-        {#if datetime == '12:00 AM'}
-            Noon
-        {:else if datetime == '12:00 PM'}
-            Midnight
-        {:else}
-            {datetime}
-        {/if}
+        <div class="doors-time">
+            Doors at <Datetime datetime={doorsTimeDate}/>
+        </div>
     {/if}
 </section>
 
@@ -81,19 +67,27 @@
         width: 1px; 
     }
     h3, .date {
-        font-size: 32px;
+        font-size: 24px;
         text-transform: uppercase;
-        font-weight: 500;
+        font-weight: 800;
         line-height: 1;
     }
     .date {
         color: var(--color-blue);
-        display: inline;
+        display: block;
+    }
+    .starttime, .doorstime {
+        display: block;
+        margin: 0;
     }
     h3 {
-        display: inline;
+        display: block;
+        margin: 0;
+        margin-bottom: 1rem;
     }
-
+    .field-label {
+        font-weight: 600;
+    }
     img {
         max-width: 100%;
     }
