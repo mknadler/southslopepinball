@@ -23,8 +23,7 @@ export default config({
 					formatting: {
 						inlineMarks: {
 							bold: true,
-							italic: true,
-							strikethrough: true
+							italic: true
 						},
 						listTypes: {
 							unordered: true,
