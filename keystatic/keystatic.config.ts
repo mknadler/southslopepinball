@@ -131,16 +131,6 @@ export default config({
 						itemLabel: props => props.value || ''
 					}
 				),
-				authors: fields.array(
-					fields.relationship({
-						label: 'Machines(old)',
-						description: 'Which machines are at this venue (optional)',
-						collection: 'machines'
-					}), {
-						label: 'Machines',
-						itemLabel: props => props.value || ''
-					}
-				),
 			}
 		}),
 		machines: collection({
