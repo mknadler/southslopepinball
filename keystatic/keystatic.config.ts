@@ -69,12 +69,8 @@ export default config({
 			label: 'Locations',
 			slugField: 'locationName',
 			path: 'src/content/locations/*',
-			format: {contentField: 'address' },
 			schema: {
 				locationName: fields.slug({ name: { label: 'Venue name' } }),
-				address: fields.document({
-					label: 'Address'
-				}),
 				url: fields.url({
 					label: 'URL',
 					description: 'Link to google maps or something'
