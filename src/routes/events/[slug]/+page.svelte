@@ -1,7 +1,16 @@
 <script>
+  import { markdocToMarkup } from '$lib/utils/markdocToMarkup'
+
   export let data
+
+  let description = markdocToMarkup(data.event.description);
 </script>
 
+<h1>Description</h1>
+
+{@html description}
+
+<br/><br/>
 <a href="/">&larr; Back home</a>
 <h1>{data.event?.eventName}</h1>
 {data.event?.description[0]?.children[0]?.text}
@@ -18,3 +27,13 @@ doors at: {data.event?.doorstime}
 {:else}
   Location: (Not set yet)
 {/if}
+
+<style>
+  :global(.bold) {
+    font-weight: 800;
+  }
+  :global(.italic) {
+    font-style: italic;
+  }
+
+</style>
