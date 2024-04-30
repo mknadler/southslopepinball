@@ -59,7 +59,7 @@ export default config({
 				image: fields.image({
 					label: 'Image',
 					description: 'Optional',
-					directory: '/static/events'
+					directory: '/src/lib/assets/images'
 				}),
 				starttime: fields.datetime({
 					label: 'Start time'
@@ -98,6 +98,11 @@ export default config({
 				url: fields.url({
 					label: 'Matchplay series URL (optional)',
 					description: 'Link to Matchplay series (optional)'
+				}),
+				image: fields.image({
+					label: 'Image',
+					description: 'Optional',
+					directory: '/src/lib/assets/images'
 				}),
 				description: fields.document({
 					label: 'Main series description',
