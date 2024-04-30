@@ -1,24 +1,16 @@
 <script>
     import { onMount } from 'svelte';
+    import { format } from 'date-fns';
 
     export let datetime;
 
     let formatted;
 
     onMount(() => {
-        formatted = new Intl.DateTimeFormat('en-US', {
-            hour: 'numeric',
-            minute: 'numeric',
-        }).format(datetime);
+        formatted = format(datetime, "h:mm bbbb")
     })
 </script>
 
 {#if formatted}
-    {#if formatted == '12:00 AM'}
-        Noon
-    {:else if formatted == '12:00 PM'}
-        Midnight
-    {:else}
-        {formatted}
-    {/if}
+    {formatted}
 {/if}
