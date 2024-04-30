@@ -10,6 +10,7 @@
     export let imagePath = '';
     export let location;
     export let dek;
+    export let series;
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
@@ -18,8 +19,6 @@
 
 </script>
 <section class="m-eventcard">
-
-
     {#if false && imagePath && imagePath !== ''}
         <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
     {/if}
@@ -36,7 +35,11 @@
             {weekday} {monthday}
         {/if}
     </span>
-
+    {#if series?.entry?.seriesSlug}
+        <div class="series">
+            <span class="field-label">Part of:</span> {series.entry.seriesSlug}
+        </div>
+    {/if}
     {#if dek}
         <div class="dek">
             {@html markdocToMarkup(dek)}
@@ -96,6 +99,9 @@
     .starttime, .doorstime {
         display: block;
         margin: 0;
+    }
+    .series {
+        margin-top: .5rem;
     }
     h3 {
         font-weight: 700;

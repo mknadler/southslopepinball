@@ -20,6 +20,9 @@
         location={data.locations.find(location => {
           return location.slug === event.entry.location
         })}
+        series={data.series.find(serie => {
+          return serie.slug === event.entry.series
+        })}
       />
     {/if}
   {/each}
