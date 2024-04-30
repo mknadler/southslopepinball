@@ -19,8 +19,8 @@
 
 </script>
 <section class="m-eventcard">
-    {#if false && imagePath && imagePath !== ''}
-        <img src={images[`/src/lib/assets/${slug}/${imagePath}`]?.default}/>
+    {#if imagePath && imagePath !== '' && images[`/src/lib/assets/images/${slug}/${imagePath}`]}
+        <img src={images[`/src/lib/assets/images/${slug}/${imagePath}`]?.default}/>
     {/if}
     <h3><a href={`/events/${slug}`}>{eventName}</a></h3>
     <span class="date">
@@ -125,6 +125,8 @@
     }
     img {
         max-width: 100%;
+        width: 300px;
+        margin-bottom: 1rem;
     }
     a {
         color: #111111;
