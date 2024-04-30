@@ -30,6 +30,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/overpass": "^5.0.19",
 		"@keystatic/core": "^0.2.9"
 	}
 }

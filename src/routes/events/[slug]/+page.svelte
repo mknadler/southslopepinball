@@ -53,12 +53,6 @@
   {/if}
 </section>
 <style>
-  :global(.bold) {
-    font-weight: 800;
-  }
-  :global(.italic) {
-    font-style: italic;
-  }
   .m-eventpage {
     padding: 0 32px;
   }

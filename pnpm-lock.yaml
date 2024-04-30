@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource-variable/overpass':
+    specifier: ^5.0.19
+    version: 5.0.19
   '@keystatic/core':
     specifier: ^0.2.9
     version: 0.2.12(react-dom@18.2.0)(react@18.2.0)
@@ -490,6 +493,10 @@ packages:
 
   /@floating-ui/utils@0.2.1:
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+    dev: false
+
+  /@fontsource-variable/overpass@5.0.19:
+    resolution: {integrity: sha512-MGeaVYF/ItkSIbNNVBlCC68srrUSFJCSqIuRY9L3qyIsKdDUuF3ZCsIQ2SBWfWo/0zZ3Pa7TuVNOojgHENbioQ==}
     dev: false
 
   /@formatjs/ecma402-abstract@1.18.2:
