@@ -19,6 +19,14 @@
 
 <Header link={true}/>
 <section class="m-eventpage">
+  {#if data.event?.series}
+
+    <div class="series">
+        <span class="field-label">Part of:</span> <a href="/series/{data.event.series}">{data.serie.seriesSlug}</a>
+    </div>
+
+  {/if}
+
   {#if data.event?.eventName}
     <h2>{data.event.eventName}</h2>
   {/if}
@@ -58,5 +66,8 @@
     font-size: 32px;
     font-weight: 500;
   }
-
+    .field-label {
+        font-weight: 600;
+        text-transform: uppercase;
+    }
 </style>

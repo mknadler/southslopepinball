@@ -10,7 +10,7 @@
     export let imagePath = '';
     export let location;
     export let dek;
-    export let series;
+    export let series: string | null = null;
 
     let startTimeDate = new Date(startTime);
     let doorsTimeDate = new Date(doorsTime);
@@ -37,7 +37,7 @@
     </span>
     {#if series?.entry?.seriesSlug}
         <div class="series">
-            <span class="field-label">Part of:</span> {series.entry.seriesSlug}
+            <span class="field-label">Part of:</span> <a href="/series/{series.slug}">{series.entry.seriesSlug}</a>
         </div>
     {/if}
     {#if dek}
@@ -50,24 +50,31 @@
         <a href={matchplayUrl}>Matchplay</a>
     {/if}
 
-    {#if location?.entry?.locationName}
-        <div class="location">
-            <span class="field-label">Venue</span>
-            <span class="m-eventcard__location">
-                {location.entry.locationName}
-            </span>
+    <div class="info">
+        <div class="info__lockup">
+            {#if location?.entry?.locationName}
+                <div class="location">
+                    <span class="field-label">Venue</span>
+                    <span class="m-eventcard__location">
+                        {location.entry.locationName}
+                    </span>
+                </div>
+            {/if}
+            {#if startTime}
+                <div class="start-time">
+                    <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
+                </div>
+            {/if}
+            {#if doorsTime}
+                <div class="doors-time">
+                    <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
+                </div>
+            {/if}
         </div>
-    {/if}
-    {#if startTime}
-        <div class="start-time">
-            <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
+        <div class="info__cta">
+            <a href={`/events/${slug}`}>See details</a>&nbsp;→
         </div>
-    {/if}
-    {#if doorsTime}
-        <div class="doors-time">
-            <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
-        </div>
-    {/if}
+    </div>
 </section>
 
 <style>
@@ -95,13 +102,11 @@
         display: block;
         font-weight: 600;
         font-size: 20px;
+        margin-bottom: 0.5rem;
     }
     .starttime, .doorstime {
         display: block;
         margin: 0;
-    }
-    .series {
-        margin-top: .5rem;
     }
     h3 {
         font-weight: 700;
@@ -142,6 +147,23 @@
     a:hover:after {
         transform: translateY(-4px);
         background: #c468ff;
+    }
+    .info {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .info__cta {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: flex-end;
+        flex-grow: 1;
+    }
+    .info__cta a {
+        font-size: 18px;
+        text-decoration: underline;
+        text-decoration-color: var(--color-blue);
     }
 
 </style>

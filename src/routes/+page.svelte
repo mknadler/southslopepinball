@@ -11,8 +11,7 @@
     {#if !event.entry.unlisted}
       <EventCard
         eventName={event.entry.eventName}
-        description={event.entry.description || ''}
-        dek={event.entry.dek}
+        dek={event.entry.dek || null}
         startTime={event.entry.starttime}
         doorsTime={event.entry.doorstime}
         slug={event.slug}
