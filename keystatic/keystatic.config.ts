@@ -1,4 +1,4 @@
-import { config, collection, fields } from '@keystatic/core';
+import { config, collection, singleton, fields } from '@keystatic/core';
 
 export default config({
 	storage: {
@@ -10,6 +10,14 @@ export default config({
 	ui: {
 		brand: { name: 'South Slope Pinball'}
 	},
+	singletons: {
+		hp_intro: singleton({
+			label: 'Homepage blurb',
+			schema: {
+				readme: fields.text({label: 'Site intro'})
+			}
+		})
+	},
 	collections: {
 		events: collection({
 			label: 'Events',
@@ -17,9 +25,10 @@ export default config({
 			path: 'src/content/events/*',
 			format: { contentField: 'description' },
 			schema: {
-				eventName: fields.slug({ name: { label: 'Event name' } }),
-				description: fields.document({
-					label: 'Long event description (for event page) (optional)',
+				eventName: fields.slug({ name: { label: 'Event name' } , slug: {label: 'Slug', description: 'The last part of the event page URL. If the slug is summer-flip-frenzy the event page URL will be southslopepinball.com/events/summer-flip-frenzy'}}),
+				dek: fields.document({
+					label: 'Event description for homepage',
+					description: 'The very short version -- like "Five rounds of matchplay and a fundraiser for the Carpal Tunnel Association. 450% WPPRs" or w/e',
 					formatting: {
 						inlineMarks: {
 							bold: true,
@@ -32,8 +41,9 @@ export default config({
 					},
 					links: true
 				}),
-				dek: fields.document({
-					label: 'Dek / short description (for homepage feed) (optional)',
+				description: fields.document({
+					label: 'Event description for event page',
+					description: 'As long as you want -- full details go here',
 					formatting: {
 						inlineMarks: {
 							bold: true,
@@ -48,25 +58,27 @@ export default config({
 				}),
 				image: fields.image({
 					label: 'Image',
+					description: 'Optional',
 					directory: '/static/events'
 				}),
 				starttime: fields.datetime({
 					label: 'Start time'
 				}),
 				doorstime: fields.datetime({
-					label: 'Doors time'
+					label: 'Doors time',
+					description: 'Optional'
 				}),
 				matchplayURL: fields.url({
 					label: 'Matchplay',
-					description: 'Matchplay url'
+					description: 'Optional. Full URL for the event, if it exists yet'
 				}),
 				unlisted: fields.checkbox({
-					label: 'Unlisted',
-					description: "Won't show up on homepage but url still works"
+					label: 'Unlisted Event',
+					description: "Won't show up in feeds (homepage/series) but the direct link will work"
 				}),
 				location: fields.relationship({
 					label: 'Venue',
-					description: 'The venue for the event',
+					description: "The bar / apartment where the tournament is. If the venue isn't in the list yet click on 'Locations' on the left to add it there",
 					collection: 'locations'
 				}),
 				series: fields.relationship({
