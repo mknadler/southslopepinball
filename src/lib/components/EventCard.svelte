@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Datetime from './Datetime.svelte'
+    import Datetime from '$lib/components/Datetime.svelte'
     import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
 
     export let eventName: string = '';
