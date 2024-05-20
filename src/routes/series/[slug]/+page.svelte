@@ -1,5 +1,5 @@
 <script>
-  import EventCard from '$lib/components/EventCard.svelte'
+  import EventCard from '$lib/components/eventcard/EventCard.svelte'
   import Header from '$lib/components/Header.svelte';
   import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
   export let data;
@@ -16,12 +16,7 @@
 
   {#each data.eventsInSeries as event}
       <EventCard
-        eventName={event.entry.eventName}
-        dek={event.entry.dek || ''}
-        startTime={event.entry.starttime || null}
-        doorsTime={event.entry.doorstime || null}
-        slug={event.slug}
-        imagePath={event.entry.image || ''}
+        eventObject={event}
         location={data.locations.find(location => {
           return location.slug === event.entry.location
         })}
