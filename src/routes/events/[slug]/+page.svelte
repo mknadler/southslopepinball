@@ -9,6 +9,8 @@
   let description = markdocToMarkup(data.event.description);
   const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
   let imagePath = data.event?.image || ''
+
+  console.log("EVENT OBJECT", data.event)
 </script>
 
 <Header link={true}/>

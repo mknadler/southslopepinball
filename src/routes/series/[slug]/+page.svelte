@@ -17,7 +17,7 @@
   {#each data.eventsInSeries as event}
       <EventCard
         eventObject={event}
-        location={data.locations.find(location => {
+        locationObject={data.locations.find(location => {
           return location.slug === event.entry.location
         })}
       />

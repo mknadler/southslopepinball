@@ -2,9 +2,11 @@
     import Datetime from '$lib/components/Datetime.svelte'
     import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
     import type { EventObject } from '$lib/types/EventObject';
+    import type { SeriesObject } from '$lib/types/SeriesObject';
+	import type { LocationObject } from '$lib/types/LocationObject';
 
-    export let location;
-    export let series = null;
+    export let locationObject: LocationObject = null;
+    export let seriesObject: SeriesObject = null;
     export let eventObject: EventObject = null;
 
     $: startTimeDate = new Date(eventObject.entry.starttime);
@@ -32,9 +34,9 @@
             {weekday} {monthday}
         {/if}
     </span>
-    {#if series?.entry?.seriesSlug}
+    {#if seriesObject?.entry?.seriesSlug}
         <div class="series">
-            <span class="field-label">Part of:</span> <a href="/series/{series.slug}">{series.entry.seriesSlug}</a>
+            <span class="field-label">Part of:</span> <a href="/series/{seriesObject.slug}">{seriesObject.entry.seriesSlug}</a>
         </div>
     {/if}
     {#if eventObject.entry.dek}
@@ -49,11 +51,11 @@
 
     <div class="info">
         <div class="info__lockup">
-            {#if location?.entry?.locationName}
+            {#if locationObject?.entry?.locationName}
                 <div class="location">
                     <span class="field-label">Venue</span>
                     <span class="m-eventcard__location">
-                        {location.entry.locationName}
+                        {locationObject.entry.locationName}
                     </span>
                 </div>
             {/if}

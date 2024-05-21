@@ -14,10 +14,10 @@
     {#if !event.entry.unlisted}
       <EventCard
         eventObject={event}
-        location={data.locations.find(location => {
+        locationObject={data.locations.find(location => {
           return location.slug === event.entry.location
         })}
-        series={data.series.find(serie => {
+        seriesObject={data.series.find(serie => {
           return serie.slug === event.entry.series
         })}
       />
