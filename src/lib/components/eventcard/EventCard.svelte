@@ -1,28 +1,27 @@
 <script lang="ts">
-    import Datetime from './Datetime.svelte'
+    import Datetime from '$lib/components/Datetime.svelte'
     import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
+    import type { EventObject } from '$lib/types/EventObject';
+    import type { SeriesObject } from '$lib/types/SeriesObject';
+	import type { LocationObject } from '$lib/types/LocationObject';
 
-    export let eventName: string = '';
-    export let matchplayUrl: string = '#';
-    export let startTime: string = '';
-    export let doorsTime: string = '';
-    export let slug = '';
-    export let imagePath = '';
-    export let location;
-    export let dek;
-    export let series: string | null = null;
+    export let locationObject: LocationObject = null;
+    export let seriesObject: SeriesObject = null;
+    export let eventObject: EventObject = null;
 
-    let startTimeDate = new Date(startTime);
-    let doorsTimeDate = new Date(doorsTime);
+    $: startTimeDate = new Date(eventObject.entry.starttime);
+    $: doorsTimeDate = new Date(eventObject.entry.doorstime);
 
     const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
 
 </script>
 <section class="m-eventcard">
-    {#if imagePath && imagePath !== '' && images[`/src/lib/assets/images/${slug}/${imagePath}`]}
-        <img src={images[`/src/lib/assets/images/${slug}/${imagePath}`]?.default}/>
+    {#if eventObject.entry.image && eventObject.entry.image !== '' && 
+         images[`/src/lib/assets/images/${eventObject.slug}/${eventObject.entry.image}`]
+    }
+        <img src={images[`/src/lib/assets/images/${eventObject.slug}/${eventObject.entry.image}`]?.default}/>
     {/if}
-    <h3><a href={`/events/${slug}`}>{eventName}</a></h3>
+    <h3><a href={`/events/${eventObject.slug}`}>{eventObject.entry.eventName}</a></h3>
     <span class="date">
         {#if startTimeDate}
             {@const weekday = new Intl.DateTimeFormat('en-US', {
@@ -35,44 +34,44 @@
             {weekday} {monthday}
         {/if}
     </span>
-    {#if series?.entry?.seriesSlug}
+    {#if seriesObject?.entry?.seriesSlug}
         <div class="series">
-            <span class="field-label">Part of:</span> <a href="/series/{series.slug}">{series.entry.seriesSlug}</a>
+            <span class="field-label">Part of:</span> <a href="/series/{seriesObject.slug}">{seriesObject.entry.seriesSlug}</a>
         </div>
     {/if}
-    {#if dek}
+    {#if eventObject.entry.dek}
         <div class="dek">
-            {@html markdocToMarkup(dek)}
+            {@html markdocToMarkup(eventObject.entry.dek)}
         </div>
     {/if}
 
-    {#if matchplayUrl && matchplayUrl != '#'}
-        <a href={matchplayUrl}>Matchplay</a>
+    {#if eventObject.entry.matchplayURL && eventObject.entry.matchplayURL != '#'}
+        <a data-sveltekit-reload rel="external" href={eventObject.entry.matchplayURL}>Matchplay</a>
     {/if}
 
     <div class="info">
         <div class="info__lockup">
-            {#if location?.entry?.locationName}
+            {#if locationObject?.entry?.locationName}
                 <div class="location">
                     <span class="field-label">Venue</span>
                     <span class="m-eventcard__location">
-                        {location.entry.locationName}
+                        {locationObject.entry.locationName}
                     </span>
                 </div>
             {/if}
-            {#if startTime}
+            {#if startTimeDate}
                 <div class="start-time">
                     <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
                 </div>
             {/if}
-            {#if doorsTime}
+            {#if doorsTimeDate}
                 <div class="doors-time">
                     <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
                 </div>
             {/if}
         </div>
         <div class="info__cta">
-            <a href={`/events/${slug}`}>See details</a>&nbsp;→
+            <a href={`/events/${eventObject.slug}`}>See details</a>&nbsp;→
         </div>
     </div>
 </section>
