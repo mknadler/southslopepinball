@@ -46,7 +46,7 @@
     {/if}
 
     {#if eventObject.entry.matchplayURL && eventObject.entry.matchplayURL != '#'}
-        <a href={eventObject.entry.matchplayURL}>Matchplay</a>
+        <a data-sveltekit-reload rel="external" href={eventObject.entry.matchplayURL}>Matchplay</a>
     {/if}
 
     <div class="info">
