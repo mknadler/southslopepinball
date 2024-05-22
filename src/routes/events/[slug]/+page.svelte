@@ -10,20 +10,24 @@
   const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
   let imagePath = data.event?.image || ''
 
+  $: startTimeDate = new Date(data.event.starttime);
+  $: doorsTimeDate = new Date(data.event.doorstime);
+
   console.log("EVENT OBJECT", data.event)
 </script>
 
 <Header link={true}/>
 <section class="m-eventpage">
+  {#if data.event?.eventName}
+    <h2>{data.event.eventName}</h2>
+  {/if}
   {#if data.event?.series}
     <div class="series">
         <span class="field-label">Part of:</span> <a href="/series/{data.event.series}">{data.serie.seriesSlug}</a>
     </div>
   {/if}
+  <Datetime datetime={startTimeDate}/>
 
-  {#if data.event?.eventName}
-    <h2>{data.event.eventName}</h2>
-  {/if}
 
   {#if imagePath && imagePath !== '' && images[`/src/lib/assets/images/${data.event.slug}/${imagePath}`]}
       <img src={images[`/src/lib/assets/images/${data.event.slug}/${imagePath}`]?.default}/>
@@ -92,7 +96,8 @@
   }
   h2 {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: bold;
+    text-transform: uppercase;
   }
     .field-label {
         font-weight: 600;
