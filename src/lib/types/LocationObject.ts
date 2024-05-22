@@ -12,3 +12,14 @@ export interface LocationObject {
     entry?: LocationEntry,
     slug?: string
 }
+
+export const mockLocationEntry = {
+    locationName: 'Mockbar',
+    private: false,
+    url: 'http://mockbar.com'
+}
+
+export const mockLocationObject = {
+    entry: mockLocationEntry,
+    slug: 'mockbar'
+}
