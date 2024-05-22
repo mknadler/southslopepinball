@@ -12,6 +12,7 @@
   }).sort((eventA, eventB) => {
       return compareDesc(eventA.entry.starttime, eventB.entry.starttime)
   })
+
 </script>
 
 <Header/>

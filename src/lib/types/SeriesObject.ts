@@ -1,4 +1,4 @@
-import {type TextBlockObject } from '$lib/types/TextObjectTypes';
+import {mockTextBlockObjectLong, type TextBlockObject } from '$lib/types/TextObjectTypes';
 
 export interface SeriesEntry {
   seriesSlug?: string, // TODO: Rename to seriesName
@@ -10,4 +10,15 @@ export interface SeriesEntry {
 export interface SeriesObject {
   entry?: SeriesEntry,
   slug?: string
+}
+
+export const mockSeriesEntry = {
+  seriesSlug: 'Mock Series',
+  url: 'http://mockseries.com',
+  description: [mockTextBlockObjectLong]
+}
+
+export const mockSeriesObject = {
+  entry: mockSeriesEntry,
+  slug: 'mock-series'
 }
