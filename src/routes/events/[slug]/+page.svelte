@@ -49,6 +49,43 @@
     Location: (Not set yet)
   {/if}
 </section>
+
+
+    <!--
+    <div class="info">
+        <div class="info__lockup">
+            {#if locationObject?.entry?.locationName}
+                <div class="location">
+                    <span class="field-label">Venue</span>
+                    <span class="m-eventcard__location">
+
+                    </span>
+                </div>
+            {/if}
+            {#if startTimeDate}
+                <div class="start-time">
+                    <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
+                </div>
+            {/if}
+            {#if doorsTimeDate}
+                <div class="doors-time">
+                    <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
+                </div>
+            {/if}
+            {#if eventObject.entry.matchplayURL && eventObject.entry.matchplayURL != '#'}
+            <div class="matchplay">
+                <span class="field-label">Matchplay</span> 
+                <a data-sveltekit-reload rel="external" href={eventObject.entry.matchplayURL}>{eventObject.entry.matchplayURL}</a>
+            </div>
+                
+            {/if}
+    
+        </div>
+        <div class="info__cta">
+            <a href={`/events/${eventObject.slug}`}>See details</a>&nbsp;→
+        </div>
+    </div>
+  -->
 <style>
   .m-eventpage {
     padding: 0 32px;

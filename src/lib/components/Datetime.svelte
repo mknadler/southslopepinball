@@ -7,7 +7,7 @@
     let formatted;
 
     onMount(() => {
-        formatted = format(datetime, "h:mm bbbb")
+        formatted = format(datetime, "h:mm bbb")
     })
 </script>
 

@@ -3,8 +3,15 @@
   import '@fontsource-variable/overpass/wght-italic.css';
   import EventCard from '$lib/components/eventcard/EventCard.svelte'
   import Header from '$lib/components/Header.svelte';
+  import { compareDesc } from "date-fns"
 
   export let data;
+
+  data.events = data.events.filter(event => {
+    return event.entry.starttime
+  }).sort((eventA, eventB) => {
+      return compareDesc(eventA.entry.starttime, eventB.entry.starttime)
+  })
 </script>
 
 <Header/>
@@ -29,6 +36,7 @@
 <style>
   .main {
     padding: 0 2rem;
+    margin: .5rem;
   }
 
   .blurb {

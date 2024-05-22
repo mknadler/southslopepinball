@@ -20,6 +20,7 @@
     </div>
     <Menu/>
 </header>
+<div role="illustration" class="sticky-header-border"></div>
 
 <style>
     .visually-hidden {
@@ -32,12 +33,18 @@
         width: 1px; 
     }
     header {
+        position: sticky;
+        top: 0;
+        margin-bottom: 4rem;
         padding-left: 2rem;
         padding-right: 2rem;
         padding-top: 1rem;
-        margin-bottom: 4rem;
+        padding-bottom: 1rem;
         display: flex;
         justify-content: space-between;
-        position: relative;
+        background: #FDFCFF;
+        z-index: 1;
+        border-bottom: 1px dashed purple;
     }
+
 </style>

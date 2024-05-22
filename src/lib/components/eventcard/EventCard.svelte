@@ -21,66 +21,60 @@
     }
         <img src={images[`/src/lib/assets/images/${eventObject.slug}/${eventObject.entry.image}`]?.default}/>
     {/if}
-    <h3><a href={`/events/${eventObject.slug}`}>{eventObject.entry.eventName}</a></h3>
-    <span class="date">
-        {#if startTimeDate}
-            {@const weekday = new Intl.DateTimeFormat('en-US', {
-                weekday: 'long'
-            }).format(startTimeDate)}
-            {@const monthday = new Intl.DateTimeFormat('en-US', {
-                month: 'short',
-                day: 'numeric'
-            }).format(startTimeDate)}
-            {weekday} {monthday}
-        {/if}
-    </span>
+    <div class="title-lockup">
+        <span class="date">
+            {#if startTimeDate}
+                {@const weekday = new Intl.DateTimeFormat('en-US', {
+                    weekday: 'short'
+                }).format(startTimeDate)}
+                {@const monthday = new Intl.DateTimeFormat('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                }).format(startTimeDate)}
+                {weekday}, {monthday} <span class="date__dot">&#8226;</span>
+            {/if}
+        </span>
+        <h3><a href={`/events/${eventObject.slug}`}>{eventObject.entry.eventName}</a></h3>
+    </div>
     {#if seriesObject?.entry?.seriesSlug}
-        <div class="series">
-            <span class="field-label">Part of:</span> <a href="/series/{seriesObject.slug}">{seriesObject.entry.seriesSlug}</a>
-        </div>
-    {/if}
+    <div class="series">
+        <span class="field-label">Part of</span> <a href="/series/{seriesObject.slug}">{seriesObject.entry.seriesSlug}</a>
+    </div>
+{/if}
     {#if eventObject.entry.dek}
         <div class="dek">
             {@html markdocToMarkup(eventObject.entry.dek)}
         </div>
     {/if}
-
-    {#if eventObject.entry.matchplayURL && eventObject.entry.matchplayURL != '#'}
-        <a data-sveltekit-reload rel="external" href={eventObject.entry.matchplayURL}>Matchplay</a>
-    {/if}
-
     <div class="info">
-        <div class="info__lockup">
-            {#if locationObject?.entry?.locationName}
-                <div class="location">
-                    <span class="field-label">Venue</span>
-                    <span class="m-eventcard__location">
-                        {locationObject.entry.locationName}
-                    </span>
-                </div>
-            {/if}
+        <div class="info__time-and-place">
             {#if startTimeDate}
-                <div class="start-time">
-                    <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
-                </div>
+                <span class="info__time-and-place__time">
+                    <Datetime datetime={startTimeDate}/>{#if startTimeDate && locationObject?.entry?.locationName},{/if}
+                </span>
             {/if}
-            {#if doorsTimeDate}
-                <div class="doors-time">
-                    <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
-                </div>
+            {#if locationObject?.entry?.locationName}
+                <span class="info__time-and-place__place">
+                    {locationObject.entry.locationName}
+                </span>
             {/if}
         </div>
-        <div class="info__cta">
+        <div class="info__link">
             <a href={`/events/${eventObject.slug}`}>See details</a>&nbsp;→
         </div>
+
     </div>
+
 </section>
 
 <style>
     .m-eventcard {
-        background: rgba(102, 102, 255, 0.1);
-        padding: 1rem;
-        margin-bottom: 2rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        margin-bottom: 4rem;
+        max-width: 800px;
+        margin: 0 auto;
+        border-bottom: 1px dashed #999;
     }
     .visually-hidden {
         clip: rect(0 0 0 0);
@@ -91,33 +85,45 @@
         white-space: nowrap;
         width: 1px; 
     }
+
     h3, .date {
-        font-size: 24px;
         text-transform: uppercase;
-        font-weight: 800;
         line-height: 1;
     }
-    .date {
-        display: block;
-        font-weight: 600;
-        font-size: 20px;
-        margin-bottom: 0.5rem;
+    h3 {
+        display: inline;
+        font-size: 32px;
+        font-weight: bold;
+        margin: 0;
+        margin-bottom: 1rem;
+        /* text-shadow: 0px 1px 0 #111; */
+        transition: text-shadow 200ms ease-in-out;
+
     }
+    h3:hover {
+        text-shadow: 2px -1px 0 #c468ff;
+    }
+    h3 a {
+        display: inline;
+    }
+
+    .date {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 32px;
+        margin-bottom: 0.5rem;
+        color: #7745E6;
+        margin-right: 0.25rem;
+    }
+    .date__dot {
+        opacity: .5;
+    }
+
     .starttime, .doorstime {
         display: block;
         margin: 0;
     }
-    h3 {
-        font-weight: 700;
-        display: block;
-        margin: 0;
-        margin-bottom: 1rem;
-        text-shadow: 0px 1px 0 #111;
-        transition: text-shadow 200ms ease-in-out;
-    }
-    h3:hover {
-        text-shadow: 2px -1px 0 var(--color-blue);
-    }
+
     .field-label {
         font-weight: 600;
         text-transform: uppercase;
@@ -126,12 +132,18 @@
         max-width: 100%;
         width: 300px;
         margin-bottom: 1rem;
+        display: none;
     }
     a {
         color: #111111;
         text-decoration: none;
         display: inline-block;
         position: relative;
+    }
+    .matchplay a,
+    .series a {
+        text-decoration: underline;
+        text-decoration-color: var(--color-blue);
     }
     a:after {
         content: '';
@@ -154,6 +166,15 @@
         align-items: flex-end;
         justify-content: space-between;
         flex-wrap: wrap;
+        margin-top: 1rem;
+        font-size: 28px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+    .info__link a {
+        text-decoration: underline;
+        text-decoration-color: var(--color-blue);
+        font-weight: 600;
     }
     .info__cta {
         margin-top: 1rem;
@@ -167,4 +188,15 @@
         text-decoration-color: var(--color-blue);
     }
 
+    .dek {
+        font-size: 24px;
+        margin-top: 1rem;
+        & p {
+            margin: 0;
+        }
+    }
+
+    .series {
+        display: none;
+    }
 </style>
