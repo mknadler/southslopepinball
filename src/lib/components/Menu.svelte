@@ -18,6 +18,7 @@
     border-radius: 50%;
     overflow: hidden;
     position: relative;
+    top: 1.25rem;
     flex-shrink: 0;
 }
 
