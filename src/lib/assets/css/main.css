@@ -1,6 +1,7 @@
 
 :root {
     --color-blue: #4D65FF;
+    --color-bg: #FDFCFF;
 }
 
 @font-face {
@@ -19,7 +20,7 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 400;
-    background: #FDFCFF;
+    background: var(--color-bg);
     margin: 0;
 }
 

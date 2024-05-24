@@ -43,7 +43,7 @@
         display: flex;
         justify-content: space-between;
         background: #FDFCFF;
-        z-index: 1;
+        z-index: 2;
         border-bottom: 1px dashed purple;
     }
 
