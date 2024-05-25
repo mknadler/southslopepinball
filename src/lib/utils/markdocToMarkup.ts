@@ -1,4 +1,5 @@
 import { type TextBlockObject } from "$lib/types/TextObjectTypes";
+import { prefixHTTP } from "$lib/utils/prefixHttp";
 
 const StyleClasses = {
     bold: 'bold',
@@ -21,7 +22,7 @@ export const markdocToMarkup = (contents: TextBlockObject[]) => {
                     innerContent += `<span class="${classList.join(' ')}">${childContent.text}</span>`
                 }
                 if (childContent.type && childContent.type === 'link') {
-                    let linkMarkup = `<a href="${childContent.href}">${childContent.children[0].text}</a>`
+                    let linkMarkup = `<a href="${prefixHTTP(childContent.href)}">${childContent.children[0].text}</a>`
                     let linkClasses = [];
                     if (childContent.children[0].bold) { linkClasses.push(StyleClasses.bold) }
                     if (childContent.children[0].italic) { linkClasses.push(StyleClasses.italic) }
