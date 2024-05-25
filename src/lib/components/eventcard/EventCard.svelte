@@ -15,6 +15,7 @@
     const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
 
 </script>
+
 <section class="m-eventcard">
     {#if eventObject.entry.image && eventObject.entry.image !== '' && 
          images[`/src/lib/assets/images/${eventObject.slug}/${eventObject.entry.image}`]
@@ -37,10 +38,10 @@
         <h3><a href={`/events/${eventObject.slug}`}>{eventObject.entry.eventName}</a></h3>
     </div>
     {#if seriesObject?.entry?.seriesSlug}
-    <div class="series">
-        <span class="field-label">Part of</span> <a href="/series/{seriesObject.slug}">{seriesObject.entry.seriesSlug}</a>
-    </div>
-{/if}
+        <div class="series">
+            <span class="field-label">Part of</span> <a href="/series/{seriesObject.slug}">{seriesObject.entry.seriesSlug}</a>
+        </div>
+    {/if}
     {#if eventObject.entry.dek}
         <div class="dek">
             {@html markdocToMarkup(eventObject.entry.dek)}
@@ -62,9 +63,7 @@
         <div class="info__link">
             <a href={`/events/${eventObject.slug}`}>See details</a>&nbsp;→
         </div>
-
     </div>
-
 </section>
 
 <style>
@@ -166,7 +165,7 @@
         justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 1rem;
-        font-size: 28px;
+        font-size: var(--font-size-info);
         font-weight: 500;
         text-transform: uppercase;
     }
