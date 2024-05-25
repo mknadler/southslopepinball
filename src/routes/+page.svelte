@@ -1,7 +1,6 @@
 <script lang="ts">
   import '@fontsource-variable/overpass';
   import '@fontsource-variable/overpass/wght-italic.css';
-  import EventCard from '$lib/components/EventCard/EventCard.svelte'
   import EventSection from '$lib/components/EventSection/EventSection.svelte';
   import EventSectionHeader from '$lib/components/EventSectionHeader/EventSectionHeader.svelte'
   import Header from '$lib/components/Header.svelte';
@@ -78,21 +77,6 @@
     <EventSectionHeader>Past Events</EventSectionHeader>
     <EventSection sectionEvents={pastEvents} allLocations={data.locations} allSeries={data.series}/>
   {/if}
-
-  <h2>All events</h2>
-  {#each allEvents as event}
-    {#if !event.entry.unlisted}
-      <EventCard
-        eventObject={event}
-        locationObject={data.locations.find(location => {
-          return location.slug === event.entry.location
-        })}
-        seriesObject={data.series.find(serie => {
-          return serie.slug === event.entry.series
-        })}
-      />
-    {/if}
-  {/each}
 </section>
 <Footer />
 

@@ -13,8 +13,6 @@
 
   $: startTimeDate = new Date(data.event.starttime);
   $: doorsTimeDate = new Date(data.event.doorstime);
-
-  console.log("EVENT OBJECT", data.event)
 </script>
 
 <Header link={true}/>
@@ -40,7 +38,7 @@
   {#if imagePath && imagePath !== '' && images[`/src/lib/assets/images/${data.event.slug}/${imagePath}`]}
       <img src={images[`/src/lib/assets/images/${data.event.slug}/${imagePath}`]?.default}/>
   {/if}
-  <div class="dek">
+  <div class="dek" data-sveltekit-reload>
     {@html description}
   </div>
   <div class="m-eventpage__times">
@@ -58,45 +56,6 @@
     Location: (Not set yet)
   {/if}
 
-  {#if data.event.matchplayURL && data.event.matchplayURL != '#'}
-    <div class="matchplay">
-        <span class="field-label">Matchplay</span> 
-        <a data-sveltekit-reload rel="external" href={eventObject.entry.matchplayURL}>{eventObject.entry.matchplayURL}</a>
-    </div>      
-  {/if}
-
-</section>
-<Footer/>
-
-    <!--
-    <div class="info">
-        <div class="info__lockup">
-            {#if locationObject?.entry?.locationName}
-                <div class="location">
-                    <span class="field-label">Venue</span>
-                    <span class="m-eventcard__location">
-
-                    </span>
-                </div>
-            {/if}
-            {#if startTimeDate}
-                <div class="start-time">
-                    <span class="field-label">Starts at</span> <Datetime datetime={startTimeDate}/>
-                </div>
-            {/if}
-            {#if doorsTimeDate}
-                <div class="doors-time">
-                    <span class="field-label">Doors at</span> <Datetime datetime={doorsTimeDate}/>
-                </div>
-            {/if}
-
-    
-        </div>
-        <div class="info__cta">
-            <a href={`/events/${eventObject.slug}`}>See details</a>&nbsp;→
-        </div>
-    </div>
-  -->
 <style>
   .m-eventpage {
     padding: 0 32px;
