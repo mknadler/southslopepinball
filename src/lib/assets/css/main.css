@@ -2,6 +2,11 @@
 :root {
     --color-blue: #4D65FF;
     --color-bg: #FDFCFF;
+    --color-purp: #c468ff;
+    --color-purp-dark: #7745E6;
+    --font-size-headings: 32px;
+    --font-size-body-large: 24px;
+    --color-gray-medium: #999999;
 }
 
 @font-face {
@@ -26,6 +31,11 @@ body {
 
 h1, h2, h3, h4, h5 {
     line-height: 1.5;
+}
+
+h2 {
+    font-size: var(--font-size-headings);
+    font-weight: bold;
 }
 
 .bold {

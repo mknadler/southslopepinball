@@ -1,9 +1,11 @@
+import { type TextBlockObject } from "$lib/types/TextObjectTypes";
+
 const StyleClasses = {
     bold: 'bold',
     italic: 'italic'
 }
 
-export const markdocToMarkup = (contents) => {
+export const markdocToMarkup = (contents: TextBlockObject[]) => {
     const contentsArray = contents.map(contentObject => {
         if (contentObject.type === 'paragraph') {
             let innerContent = '';

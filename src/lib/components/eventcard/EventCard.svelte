@@ -74,7 +74,7 @@
         margin-bottom: 4rem;
         max-width: 800px;
         margin: 0 auto;
-        border-bottom: 1px dashed #999;
+        border-bottom: 1px dashed var(--color-gray-medium);
     }
     .visually-hidden {
         clip: rect(0 0 0 0);
@@ -92,16 +92,15 @@
     }
     h3 {
         display: inline;
-        font-size: 32px;
+        font-size: var(--font-size-headings);
         font-weight: bold;
         margin: 0;
         margin-bottom: 1rem;
-        /* text-shadow: 0px 1px 0 #111; */
         transition: text-shadow 200ms ease-in-out;
 
     }
     h3:hover {
-        text-shadow: 2px -1px 0 #c468ff;
+        text-shadow: 2px -1px 0 var(--color-purp);
     }
     h3 a {
         display: inline;
@@ -110,10 +109,10 @@
     .date {
         display: inline-block;
         font-weight: 400;
-        font-size: 32px;
+        font-size: var(--font-size-headings);
         margin-bottom: 0.5rem;
-        color: #7745E6;
         margin-right: 0.25rem;
+        color: var(--color-purp-dark);
     }
     .date__dot {
         opacity: .5;
@@ -159,7 +158,7 @@
     }
     a:hover:after {
         transform: translateY(-4px);
-        background: #c468ff;
+        background: var(--color-purp);
     }
     .info {
         display: flex;
@@ -176,20 +175,9 @@
         text-decoration-color: var(--color-blue);
         font-weight: 600;
     }
-    .info__cta {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: flex-end;
-        flex-grow: 1;
-    }
-    .info__cta a {
-        font-size: 18px;
-        text-decoration: underline;
-        text-decoration-color: var(--color-blue);
-    }
 
     .dek {
-        font-size: 24px;
+        font-size: var(--font-size-body-large);
         margin-top: 1rem;
         & p {
             margin: 0;

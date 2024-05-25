@@ -1,8 +1,11 @@
 <script lang="ts">
   import '@fontsource-variable/overpass';
   import '@fontsource-variable/overpass/wght-italic.css';
-  import EventCard from '$lib/components/eventcard/EventCard.svelte'
+  import EventCard from '$lib/components/EventCard/EventCard.svelte'
+  import EventSection from '$lib/components/EventSection/EventSection.svelte';
+  import EventSectionHeader from '$lib/components/EventSectionHeader/EventSectionHeader.svelte'
   import Header from '$lib/components/Header.svelte';
+  import Footer from '$lib/components/Footer.svelte';
   import { compareAsc, compareDesc, differenceInCalendarDays } from "date-fns";
   import { type EventObject } from '$lib/types/EventObject';
 
@@ -61,55 +64,19 @@
 <section class="main">
   <p class="blurb">Pinball tournaments, leagues, and other events in South Slope, Brooklyn, NY</p>
   
-  {#if currentEvents && currentEvents.length > 1}
-    <div class="header-container"><h2>Today</h2></div>
-    {#each currentEvents as event}
-      {#if !event.entry.unlisted}
-        <EventCard
-          eventObject={event}
-          locationObject={data.locations.find(location => {
-            return location.slug === event.entry.location
-          })}
-          seriesObject={data.series.find(serie => {
-            return serie.slug === event.entry.series
-          })}
-        />
-      {/if}
-    {/each}  
+  {#if currentEvents && currentEvents.length > 0}
+    <EventSectionHeader>Today</EventSectionHeader>
+    <EventSection sectionEvents={currentEvents} allLocations={data.locations} allSeries={data.series}/>
   {/if}
 
-  {#if futureEvents && futureEvents.length > 1}
-  <div class="header-container"><h2>Future events</h2></div>
-    {#each futureEvents as event}
-      {#if !event.entry.unlisted}
-        <EventCard
-          eventObject={event}
-          locationObject={data.locations.find(location => {
-            return location.slug === event.entry.location
-          })}
-          seriesObject={data.series.find(serie => {
-            return serie.slug === event.entry.series
-          })}
-        />
-      {/if}
-    {/each}
+  {#if futureEvents && futureEvents.length > 0}
+    <EventSectionHeader>Future Events</EventSectionHeader>
+    <EventSection sectionEvents={futureEvents} allLocations={data.locations} allSeries={data.series}/>
   {/if}
 
-  {#if pastEvents && pastEvents.length > 1}
-    <div class="header-container"><h2>Past events</h2></div>
-    {#each pastEvents as event}
-      {#if !event.entry.unlisted}
-        <EventCard
-          eventObject={event}
-          locationObject={data.locations.find(location => {
-            return location.slug === event.entry.location
-          })}
-          seriesObject={data.series.find(serie => {
-            return serie.slug === event.entry.series
-          })}
-        />
-      {/if}
-    {/each}
+  {#if pastEvents && pastEvents.length > 0}
+    <EventSectionHeader>Past Events</EventSectionHeader>
+    <EventSection sectionEvents={pastEvents} allLocations={data.locations} allSeries={data.series}/>
   {/if}
 
   <h2>All events</h2>
@@ -127,7 +94,7 @@
     {/if}
   {/each}
 </section>
-
+<Footer />
 
 <style>
   .main {
@@ -139,64 +106,5 @@
     font-weight: 300;
     font-size: 18px;
     margin-bottom: 3rem;
-  }
-
-  .header-container {
-    background: var(--color-bg);
-    width: 100%;
-    height: 4rem;
-    position: sticky;
-    display: flex;
-    align-items: center;
-    top: 168px;
-    margin: 4rem auto 1rem auto;
-    z-index: 1;
-    &:before, &:after {
-      content: '';
-      display: block;
-      height: inherit;
-      width: 4rem;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-    }
-    &:before {
-      left: -2.5rem;
-      background: #c468ff;
-    }
-    &:after {
-      right: -2.5rem;
-      background: var(--color-bg);
-    }
-  }
-
-  .header-container h2 {
-    font-size: 32px;
-    font-weight: 200;
-    font-style: italic;
-    text-transform: uppercase;
-    display: inline-block;
-    position: relative;
-    top: .25rem;
-    padding: 0 .5rem;
-    vertical-align: baseline;
-    color: black;
-    height: 3rem;
-    @media (max-width: calc(800px + 2rem)) {
-      left: 0;
-    }
-    &:after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 100%;
-      border: none;
-      background: #FFD1FF;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      transform: translateY(-.25rem) skew(-9deg);
-    }
   }
 </style>
