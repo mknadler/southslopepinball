@@ -1,5 +1,5 @@
 <script lang="ts">
-    import EventCard from "$lib/components/EventCard/EventCard.svelte";
+    import EventCard from "$lib/components/events/EventCard.svelte";
 	import type { EventObject } from "$lib/types/EventObject";
     import type { LocationObject } from "$lib/types/LocationObject";
     import type { SeriesObject } from "$lib/types/SeriesObject";

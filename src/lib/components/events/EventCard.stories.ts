@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/svelte';
-import EventCard from '$lib/components/eventcard/EventCard.svelte';
+import EventCard from '$lib/components/events/EventCard.svelte';
 import { mockLocationObject } from '$lib/types/LocationObject';
 import { mockSeriesObject } from '$lib/types/SeriesObject';
 import { mockEventObject } from '$lib/types/EventObject';
