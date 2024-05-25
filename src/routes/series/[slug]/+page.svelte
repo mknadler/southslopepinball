@@ -1,5 +1,5 @@
 <script>
-  import EventCard from '$lib/components/eventcard/EventCard.svelte'
+  import EventCard from '$lib/components/EventCard/EventCard.svelte'
   import Header from '$lib/components/Header.svelte';
   import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
   export let data;
