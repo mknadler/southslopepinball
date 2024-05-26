@@ -67,8 +67,9 @@
     <IconButton label="Share this event" icon="icon-qr" on:click={()=>{
         shareModalOpen = true
     }}/>
-    <IconButton label="Open in Matchplay" icon="icon-new-window" href={data.event.matchplayURL}/>
-
+    {#if data.event.matchplayURL}
+        <IconButton label="Open in Matchplay" icon="icon-new-window" href={data.event.matchplayURL}/>
+    {/if}
     {#if false && imagePath && imagePath !== '' && images[`/src/lib/assets/images/${data.event.slug}/${imagePath}`]}
         <img src={images[`/src/lib/assets/images/${data.event.slug}/${imagePath}`]?.default}/>
     {/if}
