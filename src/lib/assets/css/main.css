@@ -4,7 +4,9 @@
     --color-bg: #FDFCFF;
     --color-purp: #c468ff;
     --color-purp-dark: #7745E6;
+    --color-pink-light: #ffd1ff;
     --font-size-headings: 32px;
+    --font-size-info: 28px;
     --font-size-body-large: 24px;
     --color-gray-medium: #999999;
 }
@@ -27,6 +29,10 @@ body {
     font-weight: 400;
     background: var(--color-bg);
     margin: 0;
+}
+
+button {
+    all: unset;
 }
 
 h1, h2, h3, h4, h5 {
