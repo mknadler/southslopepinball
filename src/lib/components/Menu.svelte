@@ -45,6 +45,7 @@ button {
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
+    clip-path: circle(49% at 50% 50%); /* prevent logo bleed */
 }
 
 .circle {

@@ -1,11 +1,16 @@
 <script>
   import EventCard from '$lib/components/events/EventCard.svelte'
   import Header from '$lib/components/Header.svelte';
+  import Sidebar from '$lib/components/Sidebar.svelte';
+  import Footer from '$lib/components/Footer.svelte';
   import { markdocToMarkup } from '$lib/utils/markdocToMarkup';
   export let data;
+
+  let menuIsOpen;
 </script>
 
-<Header link={true}/>
+<Header bind:menuIsOpen link={true}/>
+<Sidebar bind:menuIsOpen />
 <section class="main">
   <h2>{data.series.seriesSlug}</h2>
   <div class="series__description">
@@ -23,7 +28,7 @@
       />
   {/each}
 </section>
-
+<Footer/>
 
 <style>
   .main {
