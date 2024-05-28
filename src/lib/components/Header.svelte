@@ -4,6 +4,7 @@
   import Menu from '$lib/components/Menu.svelte';
 
   export let link: Boolean = false;
+  export let menuIsOpen;
 </script>
 
 <header>
@@ -18,9 +19,9 @@
             <Icon/>
         {/if}
     </div>
-    <Menu/>
+    <Menu bind:menuIsOpen />
 </header>
-<div role="illustration" class="sticky-header-border"></div>
+<div class="sticky-header-border"></div>
 
 <style>
     .visually-hidden {

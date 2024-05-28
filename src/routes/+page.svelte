@@ -7,8 +7,10 @@
   import Footer from '$lib/components/Footer.svelte';
   import { compareAsc, compareDesc, differenceInCalendarDays } from "date-fns";
   import { type EventObject } from '$lib/types/EventObject';
+  import Menu from '$lib/components/Menu.svelte';
 
   export let data;
+  let menuIsOpen = false;
 
   const sortDatesDescending = (events: EventObject[]) => {
     return events.filter(event => {
@@ -59,7 +61,28 @@
 
 </script>
 
-<Header/>
+<Header bind:menuIsOpen />
+{#if menuIsOpen}
+    <div class="sidebar">
+        <Menu bind:menuIsOpen />
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Summer league</a>
+                </li>
+                <li>
+                    <a href="#">Events at Kaite's</a>
+                </li>
+                <li>
+                    <a href="#">Menu Item</a>
+                </li>
+                <li>
+                    <a href="#">Menu item</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+{/if}
 <section class="main">
   <p class="blurb">Pinball tournaments, leagues, and other events in South Slope, Brooklyn, NY</p>
   
@@ -90,5 +113,31 @@
     font-weight: 300;
     font-size: 18px;
     margin-bottom: 3rem;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #F4F6FF;
+    z-index: 11;
+    border-left: 2px solid #111;
+  }
+  nav {
+    padding-top: 10rem;
+    padding-right: 2.5rem;
+    text-align: right;
+  }
+  nav li {
+    list-style-type: none;
+    margin: 1rem 0;
+  }
+  nav li a {
+    font-size: 24px;
+    color: #222;
+    &:hover {
+        color: #666;
+    }
   }
 </style>

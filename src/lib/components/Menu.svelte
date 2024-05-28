@@ -1,16 +1,42 @@
 <script>
+    import MenuText from "$lib/assets/MenuText.svelte";
+
+    export let menuIsOpen = false;
 </script>
 
-<div class="menu-image" role="illustration">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
-</div>
-
+<button class={`menu ${menuIsOpen ? 'menu--open' : 'menu--closed'}`} type="button" on:click={() => {menuIsOpen = !menuIsOpen}}>
+    <div class="menu-image">
+        <div class="menu-images">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+        <div class="menu-text"><MenuText/></div>
+    </div>
+</button>
 
 <style>
+
+button {
+    z-index: 10;
+    position: relative;
+}
+
+:global(.sidebar .menu) {
+    position: absolute;
+    right: 2rem;
+    top: 39px;
+}
+
+:global(.sidebar .menu--closed) {
+    display: none;
+}
+
+:global(header .menu--open) {
+    display: none;
+}
 
 .menu-image {
     width: 90px;
@@ -18,7 +44,6 @@
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    top: 1.25rem;
     flex-shrink: 0;
 }
 
@@ -59,4 +84,52 @@
     z-index: 1;
     mix-blend-mode: initial;
 }
+
+:global(.menu-image) {
+    & svg {
+        z-index: 4;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    &:hover {
+        cursor: pointer;
+    }
+    & path {
+        transform: translateY(0px);
+        transition: transform 200ms ease-in-out;
+    }
+    &:hover path {
+        &:nth-child(1) {
+            transform: translateY(-5px);
+        }
+        &:nth-child(2) {
+            transform: translateY(1px);
+        }
+        &:nth-child(3) {
+            transform: translateY(4px);
+        }
+        &:nth-child(4) {
+            transform: translateY(-6px);
+        }
+    }
+    &:active path {
+        &:nth-child(1) {
+            transform: translateY(-8px);
+        }
+        &:nth-child(2) {
+            transform: translateY(-2px);
+        }
+        &:nth-child(3) {
+            transform: translateY(1px);
+        }
+        &:nth-child(4) {
+            transform: translateY(-9px);
+        }
+    }
+}
+
 </style>
