@@ -30,6 +30,15 @@
     padding: 0 2rem;
   }
 
+  h2, .series__description {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .series__description {
+    margin-bottom: 2rem;
+  }
+
   h2 {
     font-size: 24px;
     font-weight: 700;
