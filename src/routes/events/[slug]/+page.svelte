@@ -90,7 +90,7 @@
         padding: 0 32px;
         margin-bottom: 4rem;
         margin-top: -2rem;
-        min-height: calc(100vh - 370px)
+        min-height: calc(100vh - 360px)
     }
     h2 {
         font-size: 32px;

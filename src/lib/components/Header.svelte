@@ -43,6 +43,7 @@
         padding-bottom: 1rem;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         background: #FDFCFF;
         z-index: 2;
         border-bottom: 1px dashed purple;

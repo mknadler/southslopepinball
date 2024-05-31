@@ -37,6 +37,9 @@
   let pastEvents: any[] | EventObject[] = [];
 
   allEvents.forEach(eventObject => {
+    if (eventObject.entry.unlisted) { 
+        return; 
+    }
     let eventDate = new Date(eventObject.entry.starttime);
     let differenceInDays = differenceInCalendarDays(eventDate, today);
     if (differenceInDays > 0) {

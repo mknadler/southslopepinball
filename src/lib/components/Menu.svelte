@@ -22,6 +22,9 @@
 button {
     z-index: 10;
     position: relative;
+    width: 90px;
+    height: 90px;
+    display: block;
 }
 
 :global(.sidebar .menu) {
