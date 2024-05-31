@@ -19,19 +19,23 @@
 
 <style>
 
+.menu {
+    --circle-size: 90px;
+}
+
 button {
-    z-index: 10;
     position: relative;
-    width: 90px;
-    height: 90px;
     display: block;
+    width: var(--circle-size);
+    height: var(--circle-size);
     border-radius: 50%;
+    z-index: 10;
 }
 
 :global(.sidebar .menu) {
     position: absolute;
-    right: 2rem;
     top: 39px;
+    right: 2rem;
 }
 
 :global(.sidebar .menu--closed) {
@@ -43,71 +47,72 @@ button {
 }
 
 .menu-image {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
     position: relative;
     flex-shrink: 0;
+    overflow: hidden;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border-radius: 50%;
     clip-path: circle(49% at 50% 50%); /* prevent logo bleed */
 }
 
 .circle {
     --circle-blend-color-1: #702323;
     --circle-blend-color-2: #5445FF;
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
     position: absolute;
+    width: round(calc(var(--circle-size) * 1.22), 1px);
+    height: round(calc(var(--circle-size) * 1.22), 1px);
     background: var(--circle-blend-color-1);
     mix-blend-mode: plus-lighter;
+    border-radius: 50%;
 }
 
 .circle:nth-child(1) {
-    left: 20px;
-    top: -15px;
+    top: round(calc(var(--circle-size) * calc(-15/90)), 1px);
+    left: round(calc(var(--circle-size) * calc(20/90)), 1px);
     z-index: 5;
 }
 .circle:nth-child(2) {
-    left: 10px;
-    top: -40px;
+    top: round(calc(var(--circle-size) * calc(-40/90)), 1px);
+    left: round(calc(var(--circle-size) * calc(10/90)), 1px);
     z-index: 4;
 }
 .circle:nth-child(3) {
-    left: 25px;
-    top: -55px;
+    top: round(calc(var(--circle-size) * calc(-55/90)), 1px);
+    left: round(calc(var(--circle-size) * calc(25/90)), 1px);
     z-index: 3;
 }
 .circle:nth-child(4) {
-    left: 40px;
-    top: -70px;
+    top: round(calc(var(--circle-size) * calc(-70/90)), 1px);
+    left: round(calc(var(--circle-size) * calc(40/90)), 1px);
     z-index: 4;
 }
 
 .circle:nth-child(5) {
-    width: 90px;
-    height: 90px;
+    width: var(--circle-size);
+    height: var(--circle-size);
     background: var(--circle-blend-color-2);
-    z-index: 1;
     mix-blend-mode: initial;
+    z-index: 1;
 }
 
 :global(.menu-image) {
     & svg {
-        z-index: 4;
         position: absolute;
         top: 0;
         right: 0;
-        left: 0;
         bottom: 0;
+        left: 0;
         margin: auto;
+        z-index: 4;
+
     }
     &:hover {
         cursor: pointer;
     }
     & path {
-        transform: translateY(0px);
         transition: transform 200ms ease-in-out;
+        transform: translateY(0px);
     }
     &:hover path {
         &:nth-child(1) {
