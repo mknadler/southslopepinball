@@ -25,6 +25,7 @@ button {
     width: 90px;
     height: 90px;
     display: block;
+    border-radius: 50%;
 }
 
 :global(.sidebar .menu) {
