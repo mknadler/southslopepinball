@@ -44,7 +44,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: #FDFCFF;
+        background: var(--color-bg);
         z-index: 2;
         border-bottom: 1px dashed purple;
     }

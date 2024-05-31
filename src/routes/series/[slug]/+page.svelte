@@ -33,7 +33,7 @@
 <style>
   .main {
     padding: 0 2rem;
-    min-height: calc(100vh - 320px)
+    min-height: calc(100vh - 320px); /* eyeballed value */
   }
 
   h2, .series__description {

@@ -53,11 +53,13 @@ button {
 }
 
 .circle {
+    --circle-blend-color-1: #702323;
+    --circle-blend-color-2: #5445FF;
     width: 110px;
     height: 110px;
     border-radius: 50%;
     position: absolute;
-    background: #702323;
+    background: var(--circle-blend-color-1);
     mix-blend-mode: plus-lighter;
 }
 
@@ -85,7 +87,7 @@ button {
 .circle:nth-child(5) {
     width: 90px;
     height: 90px;
-    background: #5445FF;
+    background: var(--circle-blend-color-2);
     z-index: 1;
     mix-blend-mode: initial;
 }

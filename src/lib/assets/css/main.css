@@ -1,3 +1,12 @@
+/*
+    Preferred CSS rule order:
+    - Position and cardinals
+    - Display type and associated rules
+    - Box model stuff (width/height/padding/margin)
+    - Background
+    - Other rules pertaining to whole container
+    - Rules pertaining to child nodes (inc text)
+*/
 
 :root {
     --color-blue: #4D65FF;
@@ -5,10 +14,16 @@
     --color-purp: #c468ff;
     --color-purp-dark: #7745E6;
     --color-pink-light: #ffd1ff;
+    --color-gray-light: #DDDDDD;
+    --color-gray-medium: #999999;
     --font-size-headings: 32px;
     --font-size-info: 28px;
     --font-size-body-large: 24px;
-    --color-gray-medium: #999999;
+    --bp-large: 800px;
+    --color-bg-sidebar: #D9D5FF;
+    --color-border-sidebar: #111111;
+    --color-link-sidebar: #222222;
+    --color-link-sidebar-hover: #666666;
 }
 
 @font-face {
@@ -44,6 +59,7 @@ h2 {
     font-weight: bold;
 }
 
+/* Used in markdoc generated from keystatic */
 .bold {
     font-weight: 800;
 }

@@ -7,13 +7,13 @@
     footer {
         width: 100%;
         height: 6rem;
-        background: black;
-        color: #DDD;
         padding: .25rem 1rem;
+        background: black;
         text-align: right;
+        color: var(--color-gray-light);
     }
     a {
-        color: #DDD;
+        color: var(--color-gray-light);
         text-decoration-color: var(--color-blue);
     }
 </style>

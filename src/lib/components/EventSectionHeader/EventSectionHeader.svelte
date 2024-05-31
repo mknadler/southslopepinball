@@ -61,7 +61,7 @@
             width: 100%;
             height: 100%;
             border: none;
-            background: #FFD1FF;
+            background: var(--color-pink-light);
             position: absolute;
             top: 0;
             left: 0;
