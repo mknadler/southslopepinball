@@ -57,8 +57,8 @@
         & a {
             display: inline-block;
             max-width: 90%;
-            font-size: 20px;
             color: var(--color-link-sidebar);
+            font-size: 20px;
             &:hover {
                 color: var(--color-link-sidebar-hover);
             }
