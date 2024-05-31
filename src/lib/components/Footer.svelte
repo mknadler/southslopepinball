@@ -9,8 +9,8 @@
         height: 6rem;
         padding: .25rem 1rem;
         background: black;
-        text-align: right;
         color: var(--color-gray-light);
+        text-align: right;
     }
     a {
         color: var(--color-gray-light);

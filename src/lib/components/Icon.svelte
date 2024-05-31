@@ -21,8 +21,8 @@
 <style>
     .icon {
         display: inline-block;
-        vertical-align: text-top;
         margin-right: .25rem;
+        vertical-align: text-top;
     }
     :global(.icon svg) {
         width: 100%;

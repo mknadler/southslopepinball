@@ -24,28 +24,16 @@
 <div class="sticky-header-border"></div>
 
 <style>
-    .visually-hidden {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        height: 1px;
-        overflow: hidden;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px; 
-    }
     header {
         position: sticky;
         top: 0;
-        margin-bottom: 4rem;
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 4rem;
+        padding: 1rem 2rem;
         background: var(--color-bg);
-        z-index: 2;
         border-bottom: 1px dashed purple;
+        z-index: 2;
     }
 </style>
