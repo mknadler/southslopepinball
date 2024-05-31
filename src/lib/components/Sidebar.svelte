@@ -10,16 +10,10 @@
         <nav>
             <ul>
                 <li>
-                    <a href="#">Summer league</a>
+                    <a href="/series/south-slope-match-play-league-summer-2024">Summer Matchplay League</a>
                 </li>
                 <li>
-                    <a href="#">Events at Kaite's</a>
-                </li>
-                <li>
-                    <a href="#">Menu Item</a>
-                </li>
-                <li>
-                    <a href="#">Menu item</a>
+                    <a href="/series/belles-and-chimes-summer-2024">Belles and Chimes</a>
                 </li>
             </ul>
         </nav>
