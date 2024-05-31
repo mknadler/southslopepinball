@@ -1,5 +1,5 @@
 <footer>
-    <p>Contact • About • Blahblah • Blahblah</p>
+    <p><a href="mailto:kaitepinball@gmail.com">Contact</a><!--• About--></p>
     <p>Site by <a href="https://miri.page">Miriam Nadler</a></p>
 </footer>
 
