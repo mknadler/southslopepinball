@@ -7,8 +7,11 @@
   import Footer from '$lib/components/Footer.svelte';
   import { compareAsc, compareDesc, differenceInCalendarDays } from "date-fns";
   import { type EventObject } from '$lib/types/EventObject';
+  import Menu from '$lib/components/Menu.svelte';
+	import Sidebar from '$lib/components/Sidebar.svelte';
 
   export let data;
+  let menuIsOpen = false;
 
   const sortDatesDescending = (events: EventObject[]) => {
     return events.filter(event => {
@@ -34,6 +37,9 @@
   let pastEvents: any[] | EventObject[] = [];
 
   allEvents.forEach(eventObject => {
+    if (eventObject.entry.unlisted) { 
+        return; 
+    }
     let eventDate = new Date(eventObject.entry.starttime);
     let differenceInDays = differenceInCalendarDays(eventDate, today);
     if (differenceInDays > 0) {
@@ -59,7 +65,8 @@
 
 </script>
 
-<Header/>
+<Header bind:menuIsOpen />
+<Sidebar bind:menuIsOpen />
 <section class="main">
   <p class="blurb">Pinball tournaments, leagues, and other events in South Slope, Brooklyn, NY</p>
   

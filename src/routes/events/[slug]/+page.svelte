@@ -2,6 +2,7 @@
     import { onMount } from 'svelte';
     import { markdocToMarkup } from '$lib/utils/markdocToMarkup'
     import Header from '$lib/components/Header.svelte'
+    import Sidebar from '$lib/components/Sidebar.svelte';
     import Footer from '$lib/components/Footer.svelte';
     import Datetime from '$lib/components/Datetime.svelte';
     import IconButton from '$lib/components/buttons/IconButton.svelte';
@@ -12,6 +13,8 @@
     import { browser } from '$app/environment'
 
     export let data
+    
+    let menuIsOpen;
 
     let description = markdocToMarkup(data.event.description);
     const images = import.meta.glob('$lib/assets/**/*.png', { eager: true });
@@ -31,7 +34,8 @@
     });
 </script>
 
-<Header link={true}/>
+<Header bind:menuIsOpen link={true}/>
+<Sidebar bind:menuIsOpen />
 <section class="m-eventpage">
     <!--{JSON.stringify(data.event, null, 2)}-->
     {#if currentUrl}
@@ -80,12 +84,13 @@
     {@html description}
     </div>
 </section>
+<Footer/>
 <style>
     .m-eventpage {
         padding: 0 32px;
         margin-bottom: 4rem;
         margin-top: -2rem;
-        min-height: calc(100vh - 370px)
+        min-height: calc(100vh - 360px)
     }
     h2 {
         font-size: 32px;

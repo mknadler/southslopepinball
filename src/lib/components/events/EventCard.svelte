@@ -74,6 +74,9 @@
         max-width: 800px;
         margin: 0 auto;
         border-bottom: 1px dashed var(--color-gray-medium);
+        &:last-child {
+            border-bottom: none;
+        }
     }
     .visually-hidden {
         clip: rect(0 0 0 0);
