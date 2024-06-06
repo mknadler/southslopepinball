@@ -1,10 +1,14 @@
 <script>
     import MenuText from "$lib/assets/MenuText.svelte";
+    import { getMenuIsOpenContext } from "$lib/stores/menuStore";
 
     export let menuIsOpen = false;
 </script>
 
-<button class={`menu ${menuIsOpen ? 'menu--open' : 'menu--closed'}`} type="button" on:click={() => {menuIsOpen = !menuIsOpen}}>
+<button class={`menu ${menuIsOpen ? 'menu--open' : 'menu--closed'}`} 
+        type="button" 
+        on:click={() => {menuIsOpen = !menuIsOpen}}
+    >
     <div class="menu-image">
         <div class="menu-images">
             <div class="circle"></div>
