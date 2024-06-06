@@ -11,9 +11,9 @@ An events hub for my local pinball scene, made using [Keystatic](www.keystatic.c
 ## Development
 After cloning repo, in both the base directory and /keystatic separately:
 - Install packages: `pnpm install`
-To run the app locally, in the base directory: `pnpm run dev`.
-To run Storybook, in the base directory: `pnpm run storybook`.
-To run the CMS app locally, in /keystatic: `pnpm run dev`
+- To run the app locally, in the base directory: `pnpm run dev`.
+- To run Storybook, in the base directory: `pnpm run storybook`.
+- To run the CMS app locally, in /keystatic: `pnpm run dev`
 
 ## N.B.
 - Because changes to the CMS content are saved as commits, be aware of the need to fetch/pull from main early and often when developing.
