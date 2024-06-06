@@ -8,7 +8,13 @@
   import { compareAsc, compareDesc, differenceInCalendarDays } from "date-fns";
   import { type EventObject } from '$lib/types/EventObject';
   import Menu from '$lib/components/Menu.svelte';
-	import Sidebar from '$lib/components/Sidebar.svelte';
+  import Sidebar from '$lib/components/Sidebar.svelte';
+
+  import { getMenuIsOpenContext } from '$lib/stores/menuStore';
+
+  const menuIsOpenStore = getMenuIsOpenContext();
+
+    console.log("menu store", menuIsOpenStore, $menuIsOpenStore)
 
   export let data;
   let menuIsOpen = false;
